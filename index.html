@@ -4,137 +4,10 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Nikita Safonkin</title>
-
-  <style>
-    :root{
-      --accent: #1155cc;   /* <-- set your любимый цвет here */
-      --bg: #fbfcfd;
-      --card: #ffffff;
-      --text: #111;
-      --muted: #555;
-      --border: rgba(0,0,0,.12);
-    }
-
-    *{ box-sizing: border-box; }
-    html{ scrollbar-gutter: stable; }
-
-    body{
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-    }
-
-    .topbar{
-      position: sticky;
-      top: 0;
-      background: rgba(255,255,255,.9);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-      z-index: 10;
-    }
-
-    .nav{
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 12px 18px;
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .brand{
-      font-weight: 750;
-      text-decoration: none;
-      color: var(--text);
-      margin-right: 10px;
-    }
-
-    .nav a{
-      text-decoration: none;
-      color: var(--muted);
-      padding: 6px 10px;
-      border-radius: 10px;
-    }
-
-    .nav a.active{
-      color: var(--accent);
-      border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
-      background: color-mix(in srgb, var(--accent) 10%, white);
-    }
-
-    .wrap{
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 26px 18px 60px;
-    }
-
-    .home-grid{
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr; /* left contact wider */
-      gap: 18px;
-      align-items: start;
-    }
-
-    @media (max-width: 850px){
-      .home-grid{ grid-template-columns: 1fr; }
-    }
-
-    .hero{
-      border-radius: 18px;
-      border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
-      background: linear-gradient(135deg,
-        color-mix(in srgb, var(--accent) 12%, white),
-        white);
-      padding: 18px;
-      margin-bottom: 16px;
-    }
-
-    h1{ margin: 0 0 6px; font-size: 1.9rem; }
-    .sub{ color: var(--muted); line-height: 1.45; margin: 0; }
-
-    .card{
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 16px 18px;
-    }
-
-    h2{ margin: 0 0 10px; font-size: 1.2rem; }
-
-    .contact-grid{
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-    }
-
-    .row .label{ color: var(--muted); font-size: .95rem; }
-    .row .value{ margin-top: 2px; }
-    .row .value a{ color: var(--accent); text-decoration: none; }
-    .row .value a:hover{ text-decoration: underline; }
-
-    /* Photo block: only photo */
-    .photo{
-      width: 100%;
-      aspect-ratio: 4 / 5;
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      overflow: hidden;
-      background: rgba(0,0,0,.03);
-    }
-
-    .photo img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-  </style>
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body>
-
 <header class="topbar">
   <nav class="nav">
     <a class="brand" href="index.html">Nikita Safonkin</a>
@@ -148,11 +21,10 @@
 
   <section class="hero">
     <h1>Nikita Safonkin</h1>
-    <p class="sub">Postdoctoral researcher at Leipzig University </p>
+    <p class="sub">Postdoctoral researcher at Leipzig University</p>
   </section>
 
   <section class="home-grid">
-    <!-- LEFT: Contact -->
     <div class="card">
       <h2>Contact</h2>
       <div class="contact-grid">
@@ -185,14 +57,11 @@
       </div>
     </div>
 
-    <!-- RIGHT: Photo (only photo) -->
     <div class="photo">
-      <!-- Put your photo at assets/me.jpg -->
       <img src="assets/me.jpg" alt="Photo of Nikita Safonkin">
     </div>
   </section>
 
 </main>
-
 </body>
 </html>
