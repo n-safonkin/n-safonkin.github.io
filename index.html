@@ -1,34 +1,55 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Nikita Safonkin</title>
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-  <main class="wrap">
+
+<header class="topbar">
+  <nav class="nav">
+    <a class="brand" href="index.html">Nikita Safonkin</a>
+    <a class="active" href="index.html">Bio</a>
+    <a href="papers.html">Papers</a>
+    <a href="talks.html">Talks</a>
+  </nav>
+</header>
+
+<main class="wrap">
+  <section class="hero">
     <h1>Nikita Safonkin</h1>
-    <p>Postdoctoral researcher in mathematics.</p>
-
-    <h2>Papers</h2>
-    <div class="paper">
-      <div class="paper-title">What is a double star-product?</div>
-      <div class="paper-meta">2025 · arXiv:2506.00699</div>
-
-      <div class="paper-links">
-        <a class="pill" href="https://arxiv.org/abs/2506.00699" target="_blank" rel="noopener">arXiv</a>
-        <a class="pill" href="https://arxiv.org/pdf/2506.00699.pdf" target="_blank" rel="noopener">PDF</a>
-        <button class="pill" type="button" data-toggle="abs-dsp">Abstract</button>
-        <a class="pill" href="#" target="_blank" rel="noopener">Journal</a>
-      </div>
-
-      <div id="abs-dsp" class="abstract is-hidden">
-        <p>Put your abstract text here.</p>
-      </div>
+    <div style="color: var(--muted);">
+      Postdoctoral Researcher · Institute of Mathematics · Leipzig University
     </div>
-  </main>
+  </section>
 
-  <script src="assets/site.js"></script>
+  <h2>Contact</h2>
+  <div class="card">
+    <p style="margin:0">
+      safonkin.nik (at) gmail.com ·
+      <a href="https://arxiv.org/search/?searchtype=author&query=Safonkin%2C+N" target="_blank" rel="noopener">arXiv</a>
+      · <a href="YOUR_CV_LINK_HERE" target="_blank" rel="noopener">CV</a>
+    </p>
+  </div>
+
+  <h2>Research interests</h2>
+  <div class="card">
+    <p style="margin:0">
+      representation theory · noncommutative geometry · Poisson structures · algebraic combinatorics
+    </p>
+  </div>
+
+  <h2>Bio</h2>
+  <div class="card">
+    <p>
+      Paste your bio text here (copy from Google Sites). This is just normal text now — no widgets, no weird editor.
+    </p>
+  </div>
+</main>
+
+<script src="assets/site.js"></script>
 </body>
 </html>
+
