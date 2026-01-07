@@ -8,3 +8,4 @@ document.addEventListener("click", (e) => {
 
   box.classList.toggle("is-hidden");
 });
+
