@@ -18,6 +18,9 @@
     }
 
     *{ box-sizing: border-box; }
+
+    html{ scrollbar-gutter: stable; } /* prevents tiny alignment jumps between short/long pages */
+
     body{
       margin: 0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
@@ -31,7 +34,9 @@
       background: rgba(255,255,255,.9);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
+      z-index: 10;
     }
+
     .nav{
       max-width: 900px;
       margin: 0 auto;
@@ -41,18 +46,21 @@
       flex-wrap: wrap;
       align-items: center;
     }
+
     .brand{
       font-weight: 750;
       text-decoration: none;
       color: var(--text);
       margin-right: 10px;
     }
+
     .nav a{
       text-decoration: none;
       color: var(--muted);
       padding: 6px 10px;
       border-radius: 10px;
     }
+
     .nav a.active{
       color: var(--accent);
       border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
@@ -73,33 +81,24 @@
         color-mix(in srgb, var(--accent) 12%, white),
         white);
     }
+
     h1{ margin: 0 0 6px; font-size: 1.9rem; }
     .sub{ color: var(--muted); }
 
-    .card{
-      margin-top: 16px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 6px 18px;
+    /* ✅ Each paper is its own framed mini-card */
+    ol.papers{
+      list-style: none;
+      padding-left: 0;
+      margin: 16px 0 0;
     }
 
-    ol.papers{
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-}
-
-li.paperitem{
-  margin: 14px 0;
-  padding: 14px 16px;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  background: var(--card);
-}
-
-li.paperitem:last-child{ border-bottom: 1px solid var(--border); } /* harmless */
-
+    li.paperitem{
+      margin: 14px 0;
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--card);
+    }
 
     .paper-title{ font-weight: 750; }
     .paper-authors{ margin-top: 4px; color: var(--muted); }
@@ -127,6 +126,7 @@ li.paperitem:last-child{ border-bottom: 1px solid var(--border); } /* harmless *
       text-decoration: none;
       user-select: none;
     }
+
     .pill:hover{ background: var(--accent); color: white; }
 
     .pill.disabled{
@@ -142,6 +142,7 @@ li.paperitem:last-child{ border-bottom: 1px solid var(--border); } /* harmless *
       border-left: 3px solid var(--accent);
       padding-left: 12px;
     }
+
     .is-hidden{ display: none; }
   </style>
 
@@ -171,158 +172,153 @@ li.paperitem:last-child{ border-bottom: 1px solid var(--border); } /* harmless *
 <main class="wrap">
   <section class="hero">
     <h1>Papers</h1>
-    <div class="sub">Buttons for Abstract / arXiv / PDF / Journal. Abstract toggles open/closed.</div>
+    <div class="sub">Abstract toggles open/closed. Links go to arXiv / PDF / Journal.</div>
   </section>
 
-  <div class="card">
-    <ol class="papers" reversed>
+  <ol class="papers" reversed>
 
-      <li class="paperitem">
-        <div class="paper-title"><i>What is a double star-product?</i></div>
-        <div class="paper-authors">N. Safonkin</div>
-        <div class="paper-venue">(2025) · arXiv:2506.00699</div>
+    <li class="paperitem">
+      <div class="paper-title"><i>What is a double star-product?</i></div>
+      <div class="paper-authors">N. Safonkin</div>
+      <div class="paper-venue">(2025) · arXiv:2506.00699</div>
 
-        <div class="paper-links">
-          <button class="pill" type="button" data-toggle="abs-1">Abstract</button>
-          <a class="pill" href="https://arxiv.org/abs/2506.00699" target="_blank" rel="noopener noreferrer">arXiv</a>
-          <a class="pill" href="https://arxiv.org/pdf/2506.00699.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
-          <a class="pill disabled" href="#" aria-disabled="true">Journal</a>
-        </div>
+      <div class="paper-links">
+        <button class="pill" type="button" data-toggle="abs-1">Abstract</button>
+        <a class="pill" href="https://arxiv.org/abs/2506.00699" target="_blank" rel="noopener noreferrer">arXiv</a>
+        <a class="pill" href="https://arxiv.org/pdf/2506.00699.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+        <a class="pill disabled" href="#" aria-disabled="true">Journal</a>
+      </div>
 
-        <div id="abs-1" class="abstract is-hidden">
-          <p>Double Poisson brackets, introduced by M. Van den Bergh in 2004, are noncommutative analogs of the usual Poisson brackets in the sense of the Kontsevich–Rosenberg principle: they induce Poisson structures on the space of \( N \)-dimensional representations \( \mathrm{Rep}_N(A) \) of an associative algebra \( A \) for any \( N \). The problem of deformation quantization of double Poisson brackets was raised by D. Calaque in 2010, and had remained open since then.</p>
+      <div id="abs-1" class="abstract is-hidden">
+        <p>Double Poisson brackets, introduced by M. Van den Bergh in 2004, are noncommutative analogs of the usual Poisson brackets in the sense of the Kontsevich–Rosenberg principle: they induce Poisson structures on the space of \( N \)-dimensional representations \( \mathrm{Rep}_N(A) \) of an associative algebra \( A \) for any \( N \). The problem of deformation quantization of double Poisson brackets was raised by D. Calaque in 2010, and had remained open since then.</p>
+        <p>In this paper, we address this problem by answering the question in the title. We present a structure on \( A \) that induces a star-product under the representation functor and, therefore, according to the Kontsevich–Rosenberg principle, can be viewed as an analog of star-products in noncommutative geometry. We also provide an explicit example for \( A = \Bbbk\langle x_1, \ldots, x_d \rangle \) and prove a double formality theorem in this case. Along the way, we invert the Kontsevich–Rosenberg principle by introducing the notion of a double algebra over an arbitrary operad.</p>
+      </div>
+    </li>
 
-          <p>In this paper, we address this problem by answering the question in the title. We present a structure on \( A \) that induces a star-product under the representation functor and, therefore, according to the Kontsevich–Rosenberg principle, can be viewed as an analog of star-products in noncommutative geometry. We also provide an explicit example for \( A = \Bbbk\langle x_1, \ldots, x_d \rangle \) and prove a double formality theorem in this case. Along the way, we invert the Kontsevich–Rosenberg principle by introducing the notion of a double algebra over an arbitrary operad.</p>
-        </div>
-      </li>
+    <li class="paperitem">
+      <div class="paper-title"><i>Double Poisson brackets and involutive representation spaces</i></div>
+      <div class="paper-authors">G. Olshanski, N. Safonkin</div>
+      <div class="paper-venue">Letters in Mathematical Physics 114, 33 (2024) · arXiv:2310.01086</div>
 
-      <li class="paperitem">
-        <div class="paper-title"><i>Double Poisson brackets and involutive representation spaces</i></div>
-        <div class="paper-authors">G. Olshanski, N. Safonkin</div>
-        <div class="paper-venue">Letters in Mathematical Physics 114, 33 (2024) · arXiv:2310.01086</div>
+      <div class="paper-links">
+        <button class="pill" type="button" data-toggle="abs-2">Abstract</button>
+        <a class="pill" href="https://arxiv.org/abs/2310.01086" target="_blank" rel="noopener noreferrer">arXiv</a>
+        <a class="pill" href="https://arxiv.org/pdf/2310.01086.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+        <a class="pill disabled" href="#" aria-disabled="true">Journal</a>
+      </div>
 
-        <div class="paper-links">
-          <button class="pill" type="button" data-toggle="abs-2">Abstract</button>
-          <a class="pill" href="https://arxiv.org/abs/2310.01086" target="_blank" rel="noopener noreferrer">arXiv</a>
-          <a class="pill" href="https://arxiv.org/pdf/2310.01086.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
-          <a class="pill disabled" href="#" aria-disabled="true">Journal</a>
-        </div>
+      <div id="abs-2" class="abstract is-hidden">
+        <p>Let \( \Bbbk \) be an algebraically closed field of characteristic \( 0 \) and \( A \) be a finitely generated associative \( \Bbbk \)-algebra, in general noncommutative. One assigns to \( A \) a sequence of commutative \( \Bbbk \)-algebras \( \mathcal{O}(A,d) \), \( d = 1, 2, 3, \dots \), where \( \mathcal{O}(A,d) \) is the coordinate ring of the space \( \operatorname{Rep}(A,d) \) of \( d \)-dimensional representations of the algebra \( A \). A <em>double Poisson bracket</em> on \( A \) in the sense of Van den Bergh is a bilinear map \( \{\!\!\{-,-\}\!\!\} \colon A \times A \to A \otimes A \), subject to certain conditions. Van den Bergh showed that any such bracket \( \{\!\!\{-,-\}\!\!\} \) induces Poisson structures on all algebras \( \mathcal{O}(A,d) \).</p>
+        <p>We propose an analog of Van den Bergh's construction, which produces Poisson structures on the coordinate rings of certain subspaces of the representation spaces \( \operatorname{Rep}(A,d) \). We call these subspaces the <em>involutive</em> representation spaces. They arise by imposing an additional symmetry condition on \( \operatorname{Rep}(A,d) \) — just as the classical groups from the series B, C, D are obtained from the general linear groups (series A) as fixed point sets of involutive automorphisms.</p>
+      </div>
+    </li>
 
-        <div id="abs-2" class="abstract is-hidden">
-          <p>Let \( \Bbbk \) be an algebraically closed field of characteristic \( 0 \) and \( A \) be a finitely generated associative \( \Bbbk \)-algebra, in general noncommutative. One assigns to \( A \) a sequence of commutative \( \Bbbk \)-algebras \( \mathcal{O}(A,d) \), \( d = 1, 2, 3, \dots \), where \( \mathcal{O}(A,d) \) is the coordinate ring of the space \( \operatorname{Rep}(A,d) \) of \( d \)-dimensional representations of the algebra \( A \). A <em>double Poisson bracket</em> on \( A \) in the sense of Van den Bergh is a bilinear map \( \{\!\!\{-,-\}\!\!\} \colon A \times A \to A \otimes A \), subject to certain conditions. Van den Bergh showed that any such bracket \( \{\!\!\{-,-\}\!\!\} \) induces Poisson structures on all algebras \( \mathcal{O}(A,d) \).</p>
+    <li class="paperitem">
+      <div class="paper-title"><i>Remarks on Yangian-Type Algebras and Double Poisson Brackets</i></div>
+      <div class="paper-authors">G. Olshanski, N. Safonkin</div>
+      <div class="paper-venue">Functional Analysis and Its Applications 57, 326–336 (2023) · arXiv:2308.13325</div>
 
-          <p>We propose an analog of Van den Bergh's construction, which produces Poisson structures on the coordinate rings of certain subspaces of the representation spaces \( \operatorname{Rep}(A,d) \). We call these subspaces the <em>involutive</em> representation spaces. They arise by imposing an additional symmetry condition on \( \operatorname{Rep}(A,d) \) — just as the classical groups from the series B, C, D are obtained from the general linear groups (series A) as fixed point sets of involutive automorphisms.</p>
-        </div>
-      </li>
+      <div class="paper-links">
+        <button class="pill" type="button" data-toggle="abs-3">Abstract</button>
+        <a class="pill" href="https://arxiv.org/abs/2308.13325" target="_blank" rel="noopener noreferrer">arXiv</a>
+        <a class="pill" href="https://arxiv.org/pdf/2308.13325.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+        <a class="pill disabled" href="#" aria-disabled="true">Journal</a>
+      </div>
 
-      <li class="paperitem">
-        <div class="paper-title"><i>Remarks on Yangian-Type Algebras and Double Poisson Brackets</i></div>
-        <div class="paper-authors">G. Olshanski, N. Safonkin</div>
-        <div class="paper-venue">Functional Analysis and Its Applications 57, 326–336 (2023) · arXiv:2308.13325</div>
+      <div id="abs-3" class="abstract is-hidden">
+        <p>This short note is an announcement of results. We continue the study of Yangian-type algebras initiated by the first author. These algebras share a number of properties of the Yangians of type A but are more massive. We refine and substantially enlarge the known construction. A direct link with the class of linear double Poisson brackets on the free associative algebras (Pichereau and Van de Weyer, 2008) is also established.</p>
+      </div>
+    </li>
 
-        <div class="paper-links">
-          <button class="pill" type="button" data-toggle="abs-3">Abstract</button>
-          <a class="pill" href="https://arxiv.org/abs/2308.13325" target="_blank" rel="noopener noreferrer">arXiv</a>
-          <a class="pill" href="https://arxiv.org/pdf/2308.13325.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
-          <a class="pill disabled" href="#" aria-disabled="true">Journal</a>
-        </div>
+    <li class="paperitem">
+      <div class="paper-title"><i>Semifinite harmonic functions on the direct product of graded graphs</i></div>
+      <div class="paper-authors">P. Nikitin, N. Safonkin</div>
+      <div class="paper-venue">Zapiski Nauchnykh Seminarov POMI 517, 125–150 (2022) · arXiv:2209.05901</div>
 
-        <div id="abs-3" class="abstract is-hidden">
-          <p>This short note is an announcement of results. We continue the study of Yangian-type algebras initiated by the first author. These algebras share a number of properties of the Yangians of type A but are more massive. We refine and substantially enlarge the known construction. A direct link with the class of linear double Poisson brackets on the free associative algebras (Pichereau and Van de Weyer, 2008) is also established.</p>
-        </div>
-      </li>
+      <div class="paper-links">
+        <button class="pill" type="button" data-toggle="abs-4">Abstract</button>
+        <a class="pill" href="https://arxiv.org/abs/2209.05901" target="_blank" rel="noopener noreferrer">arXiv</a>
+        <a class="pill" href="https://arxiv.org/pdf/2209.05901.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+        <a class="pill disabled" href="#" aria-disabled="true">Journal</a>
+      </div>
 
-      <li class="paperitem">
-        <div class="paper-title"><i>Semifinite harmonic functions on the direct product of graded graphs</i></div>
-        <div class="paper-authors">P. Nikitin, N. Safonkin</div>
-        <div class="paper-venue">Zapiski Nauchnykh Seminarov POMI 517, 125–150 (2022) · arXiv:2209.05901</div>
+      <div id="abs-4" class="abstract is-hidden">
+        <p>Indecomposable semifinite harmonic functions on the direct product of graded graphs are classified. As a particular case, the full list of indecomposable traces for the infinite inverse symmetric semigroup is obtained.</p>
+      </div>
+    </li>
 
-        <div class="paper-links">
-          <button class="pill" type="button" data-toggle="abs-4">Abstract</button>
-          <a class="pill" href="https://arxiv.org/abs/2209.05901" target="_blank" rel="noopener noreferrer">arXiv</a>
-          <a class="pill" href="https://arxiv.org/pdf/2209.05901.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
-          <a class="pill disabled" href="#" aria-disabled="true">Journal</a>
-        </div>
+    <li class="paperitem">
+      <div class="paper-title"><i>Semifinite harmonic functions on the zigzag graph</i></div>
+      <div class="paper-authors">N. Safonkin</div>
+      <div class="paper-venue">Functional Analysis and Its Applications 56:3, 52–74 (2022) · arXiv:2110.01508</div>
 
-        <div id="abs-4" class="abstract is-hidden">
-          <p>Indecomposable semifinite harmonic functions on the direct product of graded graphs are classified. As a particular case, the full list of indecomposable traces for the infinite inverse symmetric semigroup is obtained.</p>
-        </div>
-      </li>
+      <div class="paper-links">
+        <button class="pill" type="button" data-toggle="abs-5">Abstract</button>
+        <a class="pill" href="https://arxiv.org/abs/2110.01508" target="_blank" rel="noopener noreferrer">arXiv</a>
+        <a class="pill" href="https://arxiv.org/pdf/2110.01508.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+        <a class="pill disabled" href="#" aria-disabled="true">Journal</a>
+      </div>
 
-      <li class="paperitem">
-        <div class="paper-title"><i>Semifinite harmonic functions on the zigzag graph</i></div>
-        <div class="paper-authors">N. Safonkin</div>
-        <div class="paper-venue">Functional Analysis and Its Applications 56:3, 52–74 (2022) · arXiv:2110.01508</div>
+      <div id="abs-5" class="abstract is-hidden">
+        <p>We study semifinite harmonic functions on the zigzag graph, which corresponds to Pieri's rule for the fundamental quasisymmetric functions \( \{F_{\lambda}\} \). The main problem, which we solve here, is to classify the indecomposable semifinite harmonic functions on this graph. We describe the set of classification parameters and an explicit construction that produces a semifinite indecomposable harmonic function out of every point of this set. We also establish a semifinite analog of the Vershik–Kerov ring theorem.</p>
+      </div>
+    </li>
 
-        <div class="paper-links">
-          <button class="pill" type="button" data-toggle="abs-5">Abstract</button>
-          <a class="pill" href="https://arxiv.org/abs/2110.01508" target="_blank" rel="noopener noreferrer">arXiv</a>
-          <a class="pill" href="https://arxiv.org/pdf/2110.01508.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
-          <a class="pill disabled" href="#" aria-disabled="true">Journal</a>
-        </div>
+    <li class="paperitem">
+      <div class="paper-title"><i>Semifinite Harmonic Functions on Branching Graphs</i></div>
+      <div class="paper-authors">N. Safonkin</div>
+      <div class="paper-venue">Journal of Mathematical Sciences (New York) 261, 669–686 (2022) · arXiv:2108.07850</div>
 
-        <div id="abs-5" class="abstract is-hidden">
-          <p>We study semifinite harmonic functions on the zigzag graph, which corresponds to Pieri's rule for the fundamental quasisymmetric functions \( \{F_{\lambda}\} \). The main problem, which we solve here, is to classify the indecomposable semifinite harmonic functions on this graph. We describe the set of classification parameters and an explicit construction that produces a semifinite indecomposable harmonic function out of every point of this set. We also establish a semifinite analog of the Vershik–Kerov ring theorem.</p>
-        </div>
-      </li>
+      <div class="paper-links">
+        <button class="pill" type="button" data-toggle="abs-6">Abstract</button>
+        <a class="pill" href="https://arxiv.org/abs/2108.07850" target="_blank" rel="noopener noreferrer">arXiv</a>
+        <a class="pill" href="https://arxiv.org/pdf/2108.07850.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+        <a class="pill disabled" href="#" aria-disabled="true">Journal</a>
+      </div>
 
-      <li class="paperitem">
-        <div class="paper-title"><i>Semifinite Harmonic Functions on Branching Graphs</i></div>
-        <div class="paper-authors">N. Safonkin</div>
-        <div class="paper-venue">Journal of Mathematical Sciences (New York) 261, 669–686 (2022) · arXiv:2108.07850</div>
+      <div id="abs-6" class="abstract is-hidden">
+        <p>We study semifinite harmonic functions on arbitrary branching graphs. We give a detailed exposition of an algebraic method which allows one to classify semifinite indecomposable harmonic functions on some multiplicative branching graphs. This method was proposed by A. Wassermann in terms of operator algebras, while we rephrase, clarify, and simplify the main arguments, working only with combinatorial objects. This work was inspired by the theory of traceable factor representations of the infinite symmetric group \( S(\infty) \).</p>
+      </div>
+    </li>
 
-        <div class="paper-links">
-          <button class="pill" type="button" data-toggle="abs-6">Abstract</button>
-          <a class="pill" href="https://arxiv.org/abs/2108.07850" target="_blank" rel="noopener noreferrer">arXiv</a>
-          <a class="pill" href="https://arxiv.org/pdf/2108.07850.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
-          <a class="pill disabled" href="#" aria-disabled="true">Journal</a>
-        </div>
+    <li class="paperitem">
+      <div class="paper-title"><i>Semifinite Harmonic Functions on the Gnedin–Kingman Graph</i></div>
+      <div class="paper-authors">N. Safonkin</div>
+      <div class="paper-venue">Journal of Mathematical Sciences (New York) 255, 132–142 (2021) · arXiv:2103.02257</div>
 
-        <div id="abs-6" class="abstract is-hidden">
-          <p>We study semifinite harmonic functions on arbitrary branching graphs. We give a detailed exposition of an algebraic method which allows one to classify semifinite indecomposable harmonic functions on some multiplicative branching graphs. This method was proposed by A. Wassermann in terms of operator algebras, while we rephrase, clarify, and simplify the main arguments, working only with combinatorial objects. This work was inspired by the theory of traceable factor representations of the infinite symmetric group \( S(\infty) \).</p>
-        </div>
-      </li>
+      <div class="paper-links">
+        <button class="pill" type="button" data-toggle="abs-7">Abstract</button>
+        <a class="pill" href="https://arxiv.org/abs/2103.02257" target="_blank" rel="noopener noreferrer">arXiv</a>
+        <a class="pill" href="https://arxiv.org/pdf/2103.02257.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+        <a class="pill disabled" href="#" aria-disabled="true">Journal</a>
+      </div>
 
-      <li class="paperitem">
-        <div class="paper-title"><i>Semifinite Harmonic Functions on the Gnedin–Kingman Graph</i></div>
-        <div class="paper-authors">N. Safonkin</div>
-        <div class="paper-venue">Journal of Mathematical Sciences (New York) 255, 132–142 (2021) · arXiv:2103.02257</div>
+      <div id="abs-7" class="abstract is-hidden">
+        <p>We study the Gnedin–Kingman graph, which corresponds to Pieri's rule for the monomial basis \( \{M_{\lambda}\} \) in the algebra \( \mathrm{QSym} \) of quasisymmetric functions. The paper contains a detailed announcement of results concerning the classification of indecomposable semifinite harmonic functions on the Gnedin–Kingman graph. For these functions, we also establish a multiplicativity property, which is an analog of the Vershik–Kerov ring theorem.</p>
+      </div>
+    </li>
 
-        <div class="paper-links">
-          <button class="pill" type="button" data-toggle="abs-7">Abstract</button>
-          <a class="pill" href="https://arxiv.org/abs/2103.02257" target="_blank" rel="noopener noreferrer">arXiv</a>
-          <a class="pill" href="https://arxiv.org/pdf/2103.02257.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
-          <a class="pill disabled" href="#" aria-disabled="true">Journal</a>
-        </div>
+    <li class="paperitem">
+      <div class="paper-title"><i>Classification of Certain Class of Ordinary Differential Equations of the First Order</i></div>
+      <div class="paper-authors">P. Bibikov, N. Safonkin</div>
+      <div class="paper-venue">Russian Mathematics 62 (2018)</div>
 
-        <div id="abs-7" class="abstract is-hidden">
-          <p>We study the Gnedin–Kingman graph, which corresponds to Pieri's rule for the monomial basis \( \{M_{\lambda}\} \) in the algebra \( \mathrm{QSym} \) of quasisymmetric functions. The paper contains a detailed announcement of results concerning the classification of indecomposable semifinite harmonic functions on the Gnedin–Kingman graph. For these functions, we also establish a multiplicativity property, which is an analog of the Vershik–Kerov ring theorem.</p>
-        </div>
-      </li>
+      <div class="paper-links">
+        <button class="pill" type="button" data-toggle="abs-8">Abstract</button>
+        <a class="pill disabled" href="#" aria-disabled="true">arXiv</a>
+        <a class="pill disabled" href="#" aria-disabled="true">PDF</a>
+        <a class="pill disabled" href="#" aria-disabled="true">Journal</a>
+      </div>
 
-      <li class="paperitem">
-        <div class="paper-title"><i>Classification of Certain Class of Ordinary Differential Equations of the First Order</i></div>
-        <div class="paper-authors">P. Bibikov, N. Safonkin</div>
-        <div class="paper-venue">Russian Mathematics 62 (2018)</div>
+      <div id="abs-8" class="abstract is-hidden">
+        <p>We study problem of global classification of ordinary differential equations with the linear-fractional right-hand side with rational coefficients with respect to a symmetry group. We find the field of differential invariants and obtain the equivalence criterion for two such equations.</p>
+      </div>
+    </li>
 
-        <div class="paper-links">
-          <button class="pill" type="button" data-toggle="abs-8">Abstract</button>
-          <a class="pill disabled" href="#" aria-disabled="true">arXiv</a>
-          <a class="pill disabled" href="#" aria-disabled="true">PDF</a>
-          <a class="pill disabled" href="#" aria-disabled="true">Journal</a>
-        </div>
-
-        <div id="abs-8" class="abstract is-hidden">
-          <p>We study problem of global classification of ordinary differential equations with the linear-fractional right-hand side with rational coefficients with respect to a symmetry group. We find the field of differential invariants and obtain the equivalence criterion for two such equations.</p>
-        </div>
-      </li>
-
-    </ol>
-  </div>
+  </ol>
 </main>
 
 <script>
-  // Abstract toggle
   document.addEventListener("click", (e) => {
     const btn = e.target.closest("[data-toggle]");
     if (!btn) return;
