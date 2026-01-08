@@ -1,4 +1,4 @@
-/* ===== WIDTH FIX (force Papers to match Bio) ===== */
+/* Force Papers to match Bio width (and avoid cache ghosts) */
 .wrap{
   max-width: var(--container) !important;
   width: min(100%, var(--container)) !important;
@@ -7,7 +7,6 @@
   max-width: var(--container) !important;
   width: min(100%, var(--container)) !important;
 }
-/* ================================================ */
 
 /* Yuan-style: each paper in its own frame */
 ol.papers{
@@ -15,14 +14,14 @@ ol.papers{
   padding-left: 0;
   margin: 16px 0 0;
   display: grid;
-  gap: 14px;
+  gap: 10px; /* was 12px -> ~15% shorter */
 }
 
 li.paperitem{
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 16px;
-  padding: 14px 16px;
+  padding: 10px 14px; /* was 12px 14px -> ~15% shorter vertically */
 }
 
 .paper-title{ font-weight: 750; }
@@ -33,8 +32,8 @@ li.paperitem{
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 7px;   /* was 8px */
+  margin-bottom: 7px;/* was 8px */
 }
 
 .pill{
