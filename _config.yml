@@ -1,0 +1,5 @@
+title: Nikita Safonkin
+markdown: kramdown
+kramdown:
+  input: GFM
+timezone: Europe/Berlin
