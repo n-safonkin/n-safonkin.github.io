@@ -6,20 +6,58 @@
   <title>Nikita Safonkin</title>
   <link rel="stylesheet" href="assets/style.css">
 
-  <!-- Page-specific tweaks: make ONLY the home hero bigger (no vertical shift) -->
   <style>
+    /* Make ONLY the home hero bigger (no vertical shift) */
     .hero-home{
-      padding: 28px 24px;        /* bigger inner spacing */
+      padding: 28px 24px;
     }
     .hero-home h1{
-      font-size: 2.25rem;        /* bigger name */
+      font-size: 2.25rem;
       line-height: 1.12;
       margin: 0 0 10px;
     }
     .hero-home .sub{
-      font-size: 1.08rem;        /* slightly larger subtitle */
+      font-size: 1.08rem;
       line-height: 1.4;
       margin: 0;
+    }
+
+    /* Desktop priorities:
+       Left: About (top) + Contact (below)
+       Right: Photo
+    */
+    .home-grid{
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 16px;
+      align-items: start;
+      grid-template-areas:
+        "about  photo"
+        "contact photo";
+    }
+
+    .about-card{ grid-area: about; }
+    .contact-card{ grid-area: contact; }
+    .photo{ grid-area: photo; }
+
+    .photo img{
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+    }
+
+    /* Mobile order: Photo -> About -> Contact */
+    @media (max-width: 820px){
+      .home-grid{
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "photo"
+          "about"
+          "contact";
+      }
     }
   </style>
 </head>
@@ -42,7 +80,25 @@
   </section>
 
   <section class="home-grid">
-    <div class="card">
+
+    <!-- About -->
+    <div class="card about-card">
+      <h2>About</h2>
+      <p style="margin:0;">
+        I am a postdoctoral researcher in the Department of Mathematics at Leipzig University.
+        I completed my PhD at the University of Reims Champagne-Ardenne in 2023.
+        I am interested in noncommutative algebra and representation theory, and algebraic combinatorics
+        with connections to noncommutative Poisson geometry and deformation quantization.
+      </p>
+    </div>
+
+    <!-- Photo -->
+    <div class="photo">
+      <img src="assets/me.jpg" alt="Photo of Nikita Safonkin">
+    </div>
+
+    <!-- Contact -->
+    <div class="card contact-card">
       <h2>Contact</h2>
       <div class="contact-grid">
 
@@ -74,22 +130,6 @@
       </div>
     </div>
 
-    <div class="photo">
-      <img src="assets/me.jpg" alt="Photo of Nikita Safonkin">
-    </div>
-  </section>
-
-  <!-- NEW: About box -->
-  <section style="margin-top:16px;">
-    <div class="card">
-      <h2>About</h2>
-      <p style="margin:0;">
-        I am a postdoctoral researcher in the Department of Mathematics at Leipzig University.
-        I completed my PhD at the University of Reims Champagne-Ardenne in 2023.
-        I am interested in noncommutative algebra and representation theory, and algebraic combinatorics
-        with connections to noncommutative Poisson geometry and deformation quantization.
-      </p>
-    </div>
   </section>
 
 </main>
