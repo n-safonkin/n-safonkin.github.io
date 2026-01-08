@@ -1,6 +1,13 @@
-/* Force the shared site width on the Papers page (fixes "too narrow") */
-.wrap{ max-width: var(--container) !important; }
-.nav{ max-width: var(--container) !important; }
+/* ===== WIDTH FIX (force Papers to match Bio) ===== */
+.wrap{
+  max-width: var(--container) !important;
+  width: min(100%, var(--container)) !important;
+}
+.nav{
+  max-width: var(--container) !important;
+  width: min(100%, var(--container)) !important;
+}
+/* ================================================ */
 
 /* Yuan-style: each paper in its own frame */
 ol.papers{
