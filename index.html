@@ -6,17 +6,21 @@ extra_css:
   - /assets/index.css
 ---
 
-<section class="hero hero-home">
-  <h1>Nikita Safonkin</h1>
-  <p class="sub">Postdoctoral researcher at Leipzig University</p>
-</section>
+<section class="home-layout">
 
-<section class="home-grid">
+  <section class="hero hero-home">
+    <h1>Nikita Safonkin</h1>
+    <p class="sub">Postdoctoral researcher at Leipzig University</p>
+  </section>
+
+  <div class="card photo-card">
+    <img src="{{ '/me.jpg' | relative_url }}" alt="Photo of Nikita Safonkin">
+  </div>
 
   <div class="card contact-card">
     <h2 style="margin:0 0 10px;">Contact</h2>
-    <div class="contact-grid">
 
+    <div class="contact-grid">
       <div class="row">
         <div class="label">Email</div>
         <div class="value">safonkin.nik@gmail.com</div>
@@ -34,7 +38,6 @@ extra_css:
         <div class="label">Office</div>
         <div class="value">A409 (Neues Augusteum)</div>
       </div>
-
     </div>
   </div>
 
@@ -57,10 +60,6 @@ extra_css:
         <a href="{{ '/assets/CV.pdf' | relative_url }}" target="_blank" rel="noopener">CV</a>.
       </p>
     </div>
-  </div>
-
-  <div class="photo">
-    <img src="{{ '/assets/me.jpg' | relative_url }}" alt="Photo of Nikita Safonkin">
   </div>
 
 </section>
