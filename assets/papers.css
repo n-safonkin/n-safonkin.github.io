@@ -1,5 +1,6 @@
-/* IMPORTANT: this file must NOT define .wrap / .nav / body / :root widths.
-   Width is controlled globally by assets/style.css via --container. */
+/* Force the shared site width on the Papers page (fixes "too narrow") */
+.wrap{ max-width: var(--container) !important; }
+.nav{ max-width: var(--container) !important; }
 
 /* Yuan-style: each paper in its own frame */
 ol.papers{
