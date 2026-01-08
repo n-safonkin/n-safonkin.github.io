@@ -1,0 +1,9 @@
+<header class="topbar">
+  <nav class="nav">
+    <a class="brand" href="{{ '/' | relative_url }}">Nikita Safonkin</a>
+
+    <a href="{{ '/' | relative_url }}" class="{% if page.url == '/' %}active{% endif %}">Bio</a>
+    <a href="{{ '/papers.html' | relative_url }}" class="{% if page.url contains 'papers' %}active{% endif %}">Papers</a>
+    <a href="{{ '/other_writings.html' | relative_url }}" class="{% if page.url contains 'other_writings' %}active{% endif %}">Other Writings</a>
+  </nav>
+</header>
