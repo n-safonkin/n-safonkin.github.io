@@ -18,7 +18,7 @@
 .home-grid{
   margin-top: 16px;
   display: grid;
-  grid-template-columns: 0.62fr 1.93fr 1.25fr; /* photo +25% */
+  grid-template-columns: 0.62fr 1.93fr 1.25fr; /* photo column unchanged */
   gap: 16px;
   align-items: start;
   grid-template-areas: "contact about photo";
@@ -28,17 +28,21 @@
 .about-card{ grid-area: about; }
 .photo{ grid-area: photo; }
 
+/* Photo box */
 .photo{
   border-radius: 16px;
   border: 1px solid var(--border);
   background: var(--card);
   padding: 10px;
 }
+
+/* 10% smaller photo (inside the same column) */
 .photo img{
   display: block;
-  width: 100%;
+  width: 90%;
   height: auto;
   border-radius: 12px;
+  margin: 0 auto; /* keep it centered */
 }
 
 /* Contact: value UNDER label */
@@ -47,9 +51,9 @@
   gap: 4px;
 }
 
-/* About: paragraph spacing */
+/* About: paragraph spacing doubled (was 16px, now 32px) */
 .about-card p{
-  margin: 0 0 16px;
+  margin: 0 0 32px;
 }
 .about-card p:last-child{
   margin-bottom: 0;
@@ -63,5 +67,10 @@
       "photo"
       "about"
       "contact";
+  }
+
+  /* keep the same 10% shrink on mobile too */
+  .photo img{
+    width: 90%;
   }
 }
