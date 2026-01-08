@@ -36,12 +36,19 @@
     .about-card{ grid-area: about; }
     .photo{ grid-area: photo; }
 
+    /* Optional: make the photo feel like it belongs with the cards */
+    .photo{
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      padding: 10px;
+    }
+
     .photo img{
       display: block;
       width: 100%;
       height: auto;
-      border-radius: 16px;
-      border: 1px solid var(--border);
+      border-radius: 12px;
     }
 
     /* Mobile: Photo -> About -> Contact */
@@ -112,10 +119,11 @@
     <!-- About (center, dominant) -->
     <div class="card about-card">
       <h2>About</h2>
-      <p style="margin:0;">
+      <p style="margin:0 0 10px;">
         I am a postdoctoral researcher in the Department of Mathematics at Leipzig University.
         I completed my PhD at the University of Reims Champagne-Ardenne in 2023.
-        
+      </p>
+      <p style="margin:0;">
         I am interested in noncommutative algebra, representation theory, and algebraic combinatorics,
         with connections to noncommutative Poisson geometry and deformation quantization.
       </p>
