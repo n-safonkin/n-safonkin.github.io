@@ -56,6 +56,14 @@
       gap: 4px;
     }
 
+    /* About: increase paragraph spacing */
+    .about-card p{
+      margin: 0 0 16px;
+    }
+    .about-card p:last-child{
+      margin-bottom: 0;
+    }
+
     /* Mobile: Photo -> About -> Contact */
     @media (max-width: 900px){
       .home-grid{
@@ -118,17 +126,17 @@
     <div class="card about-card">
       <h2 style="margin:0 0 10px;">About</h2>
 
-      <p style="margin:0 0 10px;">
+      <p>
         I am a postdoctoral researcher in the Department of Mathematics at Leipzig University.
         I completed my PhD at the University of Reims Champagne-Ardenne in 2023.
       </p>
 
-      <p style="margin:0 0 10px;">
+      <p>
         I am interested in noncommutative algebra, representation theory, and algebraic combinatorics,
         with connections to noncommutative Poisson geometry and deformation quantization.
       </p>
 
-      <p style="margin:0;">
+      <p>
         My CV is available here:
         <a href="YOUR_CV_LINK_HERE" target="_blank" rel="noopener">CV</a>.
       </p>
