@@ -7,7 +7,7 @@
   --muted: #555;
   --border: rgba(0,0,0,.12);
 
-  /* ONE knob: same width on all pages (+10% from 970px) */
+  /* ONE knob: same width on all pages */
   --container: 1067px;
 }
 
@@ -20,7 +20,6 @@ body{
   background: var(--bg);
   color: var(--text);
 
-  /* Sticky footer: push footer to bottom if page is short */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -73,7 +72,6 @@ body{
   padding: 26px 18px 60px;
 }
 
-/* Make main content take remaining height (for sticky footer) */
 main.wrap{
   flex: 1;
 }
@@ -102,17 +100,21 @@ a{ color: var(--accent); }
 a:hover{ text-decoration: underline; }
 
 /* Contact table (index page) */
-.contact-grid{ display: grid; gap: 10px; }
+.contact-grid{
+  display: grid;
+  gap: 0; /* we will control spacing via padding */
+}
 
+/* REMOVE dashed separators */
 .row{
   display: grid;
   grid-template-columns: 120px 1fr;
   gap: 10px;
   padding: 6px 0;
-  border-bottom: 1px dashed color-mix(in srgb, var(--border) 65%, transparent);
+  border-bottom: none;
 }
-.row:last-child{ border-bottom: none; }
 
+/* Label/value */
 .label{
   color: var(--muted);
   font-weight: 650;
