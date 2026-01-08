@@ -1,3 +1,7 @@
+/* IMPORTANT: this file must NOT define .wrap / .nav / body / :root widths.
+   Width is controlled globally by assets/style.css via --container. */
+
+/* Yuan-style: each paper in its own frame */
 ol.papers{
   list-style: none;
   padding-left: 0;
@@ -39,7 +43,11 @@ li.paperitem{
   text-decoration: none;
   user-select: none;
 }
-.pill:hover{ background: var(--accent); color: white; }
+
+.pill:hover{
+  background: var(--accent);
+  color: white;
+}
 
 .pill.disabled{
   opacity: .45;
@@ -52,4 +60,5 @@ li.paperitem{
   border-left: 3px solid var(--accent);
   padding-left: 12px;
 }
+
 .is-hidden{ display: none; }
