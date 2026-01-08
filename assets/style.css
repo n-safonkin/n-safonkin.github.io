@@ -8,7 +8,7 @@
   --border: rgba(0,0,0,.12);
 
   /* ONE knob: same width on all pages */
-  --container: 950px;
+  --container: 1140px;
 }
 
 *{ box-sizing: border-box; }
