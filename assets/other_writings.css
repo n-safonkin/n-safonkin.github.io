@@ -1,0 +1,4 @@
+/* Make the thesis cards ~15% shorter (match Papers card feel) */
+.ow-item{
+  padding: 10px 14px; /* was 12px 14px */
+}
