@@ -7,8 +7,8 @@
   --muted: #555;
   --border: rgba(0,0,0,.12);
 
-  /* ONE knob: same width on all pages */
-  --container: 1140px;
+  /* ONE knob: same width on all pages (15% smaller than 1140px) */
+  --container: 970px;
 }
 
 *{ box-sizing: border-box; }
@@ -19,6 +19,11 @@ body{
   font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   background: var(--bg);
   color: var(--text);
+
+  /* Sticky footer: push footer to bottom if page is short */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* === Top bar (identical on every page) === */
@@ -66,6 +71,11 @@ body{
   max-width: var(--container);
   margin: 0 auto;
   padding: 26px 18px 60px;
+}
+
+/* Make main content take remaining height (for sticky footer) */
+main.wrap{
+  flex: 1;
 }
 
 /* === Shared blocks === */
