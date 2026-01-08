@@ -24,7 +24,9 @@
 
   <main class="wrap">
     {{ content }}
-    {% include footer.html %}
+    {% if page.show_footer %}
+      {% include footer.html %}
+    {% endif %}
   </main>
 
   {% if page.extra_js %}
