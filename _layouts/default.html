@@ -24,10 +24,13 @@
 
   <main class="wrap">
     {{ content }}
-    {% if page.show_footer %}
-      {% include footer.html %}
-    {% endif %}
   </main>
+
+  {% if page.show_footer %}
+    <div class="wrap">
+      {% include footer.html %}
+    </div>
+  {% endif %}
 
   {% if page.extra_js %}
     {% for js in page.extra_js %}
