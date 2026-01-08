@@ -1,6 +1,30 @@
-/* Make ONLY the home hero bigger (no vertical shift) */
+/* ====== Desktop layout: cut hero on the right by giving photo its own column ====== */
+/* Grid:
+   Row 1: hero hero photo
+   Row 2: contact about photo
+   Photo appears in both rows -> starts higher (next to hero), and its bottom aligns
+   with Contact/About by making row2 fill the remaining height. */
+
+.home-layout{
+  margin-top: 0;
+  display: grid;
+  grid-template-columns: 0.62fr 1.55fr 1.05fr; /* photo column slightly larger */
+  grid-template-rows: auto 1fr;
+  gap: 16px;
+  align-items: stretch;
+  grid-template-areas:
+    "hero   hero   photo"
+    "contact about  photo";
+}
+
+.hero-home{ grid-area: hero; }
+.photo-card{ grid-area: photo; }
+.contact-card{ grid-area: contact; height: 100%; }
+.about-card{ grid-area: about; height: 100%; }
+
+/* Hero tuning (blue box) */
 .hero-home{
-  padding: 28px 24px;
+  padding: 22px 22px;
 }
 .hero-home h1{
   font-size: 2.25rem;
@@ -14,46 +38,22 @@
   color: var(--muted);
 }
 
-/* Desktop: Contact | About | Photo */
-.home-grid{
-  margin-top: 16px;
-  display: grid;
-  grid-template-columns: 0.62fr 1.93fr 1.25fr;
-  gap: 16px;
-
-  /* IMPORTANT: make the 3 boxes the same height */
-  align-items: stretch;
-
-  grid-template-areas: "contact about photo";
-}
-
-.contact-card{ grid-area: contact; height: 100%; }
-.about-card{ grid-area: about; height: 100%; }
-.photo{ grid-area: photo; height: 100%; }
-
-/* Photo box */
-.photo{
-  border-radius: 16px;
-  border: 1px solid var(--border);
-  background: var(--card);
+/* Photo card: starts at top (next to hero), spans both rows */
+.photo-card{
   padding: 10px;
-
-  /* center the image inside the stretched box */
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
-
-/* Photo +5% (was 92%, now 96.6%) */
-.photo img{
+.photo-card img{
   display: block;
-  width: 96.6%;
+  width: 100%;
   height: auto;
-  max-height: 100%;
-  border-radius: 12px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
 }
 
-/* Contact: stretch spacing between Email / Address / Office */
+/* Contact: spread Email / Address / Office evenly to match the photo bottom */
 .contact-card{
   display: flex;
   flex-direction: column;
@@ -62,15 +62,17 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-between; /* key: spreads sections vertically */
 }
 .contact-card .row{
-  grid-template-columns: 1fr;
-  gap: 4px;
-  padding: 12px 0; /* a bit more breathing room */
+  display: block; /* label on top, value under it */
+  padding: 0;
+}
+.contact-card .label{
+  margin: 0 0 6px;
 }
 
-/* About: stretch spacing between paragraphs */
+/* About: spread paragraphs vertically so the card stretches to match photo bottom */
 .about-card{
   display: flex;
   flex-direction: column;
@@ -79,23 +81,26 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-between; /* key: stretches paragraph spacing */
 }
 .about-card p{
   margin: 0;
 }
 
-/* Mobile: Photo -> About -> Contact */
+/* ====== Mobile: photo first, then hero, then about, then contact ====== */
 @media (max-width: 900px){
-  .home-grid{
+  .home-layout{
     grid-template-columns: 1fr;
+    grid-template-rows: auto;
     grid-template-areas:
       "photo"
+      "hero"
       "about"
       "contact";
   }
 
-  .photo img{
-    width: 96.6%;
+  .photo-card img{
+    width: 70%;
+    max-width: 280px;
   }
 }
