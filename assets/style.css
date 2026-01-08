@@ -7,8 +7,8 @@
   --muted: #555;
   --border: rgba(0,0,0,.12);
 
-  /* ONE knob: same width on all pages (15% smaller than 1140px) */
-  --container: 970px;
+  /* ONE knob: same width on all pages (+10% from 970px) */
+  --container: 1067px;
 }
 
 *{ box-sizing: border-box; }
