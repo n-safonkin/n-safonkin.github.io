@@ -7,8 +7,8 @@
   --muted: #555;
   --border: rgba(0,0,0,.12);
 
-  /* ONE knob: same width on all pages */
-  --container: 1067px;
+  /* ONE knob: same width on all pages (increased) */
+  --container: 1200px;
 }
 
 *{ box-sizing: border-box; }
@@ -99,13 +99,13 @@ main.wrap{
 a{ color: var(--accent); }
 a:hover{ text-decoration: underline; }
 
-/* Contact table (index page) */
+/* Contact grid */
 .contact-grid{
   display: grid;
-  gap: 0; /* we will control spacing via padding */
+  gap: 0;
 }
 
-/* REMOVE dashed separators */
+/* No dashed separators */
 .row{
   display: grid;
   grid-template-columns: 120px 1fr;
@@ -114,7 +114,6 @@ a:hover{ text-decoration: underline; }
   border-bottom: none;
 }
 
-/* Label/value */
 .label{
   color: var(--muted);
   font-weight: 650;
