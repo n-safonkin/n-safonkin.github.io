@@ -22,23 +22,18 @@
       margin: 0;
     }
 
-    /* Desktop priorities:
-       Left: About (top) + Contact (below)
-       Right: Photo
-    */
+    /* Desktop: Contact | About | Photo */
     .home-grid{
       margin-top: 16px;
       display: grid;
-      grid-template-columns: 1.6fr 1fr;
+      grid-template-columns: 0.95fr 1.6fr 1fr; /* contact narrow, about wide, photo normal */
       gap: 16px;
       align-items: start;
-      grid-template-areas:
-        "about  photo"
-        "contact photo";
+      grid-template-areas: "contact about photo";
     }
 
-    .about-card{ grid-area: about; }
     .contact-card{ grid-area: contact; }
+    .about-card{ grid-area: about; }
     .photo{ grid-area: photo; }
 
     .photo img{
@@ -49,8 +44,8 @@
       border: 1px solid var(--border);
     }
 
-    /* Mobile order: Photo -> About -> Contact */
-    @media (max-width: 820px){
+    /* Mobile: Photo -> About -> Contact */
+    @media (max-width: 900px){
       .home-grid{
         grid-template-columns: 1fr;
         grid-template-areas:
@@ -81,23 +76,7 @@
 
   <section class="home-grid">
 
-    <!-- About -->
-    <div class="card about-card">
-      <h2>About</h2>
-      <p style="margin:0;">
-        I am a postdoctoral researcher in the Department of Mathematics at Leipzig University.
-        I completed my PhD at the University of Reims Champagne-Ardenne in 2023.
-        I am interested in noncommutative algebra and representation theory, and algebraic combinatorics
-        with connections to noncommutative Poisson geometry and deformation quantization.
-      </p>
-    </div>
-
-    <!-- Photo -->
-    <div class="photo">
-      <img src="assets/me.jpg" alt="Photo of Nikita Safonkin">
-    </div>
-
-    <!-- Contact -->
+    <!-- Contact (leftmost on desktop) -->
     <div class="card contact-card">
       <h2>Contact</h2>
       <div class="contact-grid">
@@ -128,6 +107,23 @@
         </div>
 
       </div>
+    </div>
+
+    <!-- About (center, dominant) -->
+    <div class="card about-card">
+      <h2>About</h2>
+      <p style="margin:0;">
+        I am a postdoctoral researcher in the Department of Mathematics at Leipzig University.
+        I completed my PhD at the University of Reims Champagne-Ardenne in 2023.
+        
+        I am interested in noncommutative algebra, representation theory, and algebraic combinatorics,
+        with connections to noncommutative Poisson geometry and deformation quantization.
+      </p>
+    </div>
+
+    <!-- Photo (right) -->
+    <div class="photo">
+      <img src="assets/me.jpg" alt="Photo of Nikita Safonkin">
     </div>
 
   </section>
