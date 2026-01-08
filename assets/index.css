@@ -2,7 +2,7 @@
 .home-layout{
   margin-top: 0;
   display: grid;
-  grid-template-columns: 0.62fr 1.55fr 1.05fr;
+  grid-template-columns: 0.62fr 1.55fr 1.25fr; /* photo column wider */
   grid-template-rows: auto 1fr;
   gap: 16px;
   align-items: stretch;
@@ -32,18 +32,19 @@
   color: var(--muted);
 }
 
-/* Photo card: spans both rows */
+/* Photo card: spans both rows, image fits inside */
 .photo-card{
   padding: 10px;
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  overflow: hidden; /* safety */
 }
 
-/* Picture +10% (was 100%, now 110%) */
 .photo-card img{
   display: block;
-  width: 110%;
+  width: 100%;       /* IMPORTANT: fit inside the box */
+  max-width: 100%;
   height: auto;
   border-radius: 14px;
   border: 1px solid var(--border);
@@ -59,8 +60,8 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* keeps top/bottom aligned */
-  gap: 26px;                      /* increases spacing between sections */
+  justify-content: space-between;
+  gap: 26px;
 }
 
 .contact-card .row{
@@ -82,15 +83,15 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* keeps bottom aligned with photo */
-  gap: 28px;                      /* increases paragraph spacing */
+  justify-content: space-between;
+  gap: 28px;
 }
 
 .about-card p{
   margin: 0;
 }
 
-/* ====== Mobile: photo first, then hero, then about, then contact ====== */
+/* ====== Mobile ====== */
 @media (max-width: 900px){
   .home-layout{
     grid-template-columns: 1fr;
@@ -103,7 +104,7 @@
   }
 
   .photo-card img{
-    width: 77%;
-    max-width: 308px;
+    width: 78%;
+    max-width: 330px;
   }
 }
