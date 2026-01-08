@@ -26,7 +26,7 @@
     .home-grid{
       margin-top: 16px;
       display: grid;
-      grid-template-columns: 0.95fr 1.6fr 1fr; /* contact narrow, about wide, photo normal */
+      grid-template-columns: 0.95fr 1.6fr 1fr;
       gap: 16px;
       align-items: start;
       grid-template-areas: "contact about photo";
@@ -51,6 +51,20 @@
       border-radius: 12px;
     }
 
+    /* About links row */
+    .about-links{
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .about-links a{
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .about-links a:hover{ text-decoration: underline; }
+
     /* Mobile: Photo -> About -> Contact */
     @media (max-width: 900px){
       .home-grid{
@@ -69,73 +83,4 @@
   <nav class="nav">
     <a class="brand" href="index.html">Nikita Safonkin</a>
     <a class="active" href="index.html">Bio</a>
-    <a href="papers.html">Papers</a>
-    <a href="other_writings.html">Other Writings</a>
-  </nav>
-</header>
-
-<main class="wrap">
-
-  <section class="hero hero-home">
-    <h1>Nikita Safonkin</h1>
-    <p class="sub">Postdoctoral researcher at Leipzig University</p>
-  </section>
-
-  <section class="home-grid">
-
-    <!-- Contact (leftmost on desktop) -->
-    <div class="card contact-card">
-      <h2>Contact</h2>
-      <div class="contact-grid">
-
-        <div class="row">
-          <div class="label">Email</div>
-          <div class="value"><a href="mailto:safonkin.nik@gmail.com">safonkin.nik@gmail.com</a></div>
-        </div>
-
-        <div class="row">
-          <div class="label">Affiliation</div>
-          <div class="value">Leipzig University</div>
-        </div>
-
-        <div class="row">
-          <div class="label">Office</div>
-          <div class="value">Add office / building (optional)</div>
-        </div>
-
-        <div class="row">
-          <div class="label">Links</div>
-          <div class="value">
-            <a href="https://arxiv.org/search/?searchtype=author&query=Safonkin%2C+N" target="_blank" rel="noopener">arXiv</a>
-            · <a href="YOUR_CV_LINK_HERE" target="_blank" rel="noopener">CV</a>
-            · <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank" rel="noopener">GitHub</a>
-            · <a href="YOUR_SCHOLAR_LINK_HERE" target="_blank" rel="noopener">Google Scholar</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- About (center, dominant) -->
-    <div class="card about-card">
-      <h2>About</h2>
-      <p style="margin:0 0 10px;">
-        I am a postdoctoral researcher in the Department of Mathematics at Leipzig University.
-        I completed my PhD at the University of Reims Champagne-Ardenne in 2023.
-      </p>
-      <p style="margin:0;">
-        I am interested in noncommutative algebra, representation theory, and algebraic combinatorics,
-        with connections to noncommutative Poisson geometry and deformation quantization.
-      </p>
-    </div>
-
-    <!-- Photo (right) -->
-    <div class="photo">
-      <img src="assets/me.jpg" alt="Photo of Nikita Safonkin">
-    </div>
-
-  </section>
-
-</main>
-</body>
-</html>
+    <a href="papers.html">P
