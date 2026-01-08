@@ -1,14 +1,8 @@
-/* ====== Desktop layout: cut hero on the right by giving photo its own column ====== */
-/* Grid:
-   Row 1: hero hero photo
-   Row 2: contact about photo
-   Photo appears in both rows -> starts higher (next to hero), and its bottom aligns
-   with Contact/About by making row2 fill the remaining height. */
-
+/* ====== Desktop layout: hero hero photo / contact about photo ====== */
 .home-layout{
   margin-top: 0;
   display: grid;
-  grid-template-columns: 0.62fr 1.55fr 1.05fr; /* photo column slightly larger */
+  grid-template-columns: 0.62fr 1.55fr 1.05fr;
   grid-template-rows: auto 1fr;
   gap: 16px;
   align-items: stretch;
@@ -22,7 +16,7 @@
 .contact-card{ grid-area: contact; height: 100%; }
 .about-card{ grid-area: about; height: 100%; }
 
-/* Hero tuning (blue box) */
+/* Hero tuning */
 .hero-home{
   padding: 22px 22px;
 }
@@ -38,51 +32,60 @@
   color: var(--muted);
 }
 
-/* Photo card: starts at top (next to hero), spans both rows */
+/* Photo card: spans both rows */
 .photo-card{
   padding: 10px;
   display: flex;
   align-items: flex-start;
   justify-content: center;
 }
+
+/* Picture +10% (was 100%, now 110%) */
 .photo-card img{
   display: block;
-  width: 100%;
+  width: 110%;
   height: auto;
   border-radius: 14px;
   border: 1px solid var(--border);
 }
 
-/* Contact: spread Email / Address / Office evenly to match the photo bottom */
+/* Contact: spread sections more (Email / Address / Office) */
 .contact-card{
   display: flex;
   flex-direction: column;
 }
+
 .contact-card .contact-grid{
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* key: spreads sections vertically */
+  justify-content: space-between; /* keeps top/bottom aligned */
+  gap: 26px;                      /* increases spacing between sections */
 }
+
 .contact-card .row{
-  display: block; /* label on top, value under it */
+  display: block;
   padding: 0;
 }
+
 .contact-card .label{
   margin: 0 0 6px;
 }
 
-/* About: spread paragraphs vertically so the card stretches to match photo bottom */
+/* About: stretch spacing between paragraphs more */
 .about-card{
   display: flex;
   flex-direction: column;
 }
+
 .about-card .about-body{
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* key: stretches paragraph spacing */
+  justify-content: space-between; /* keeps bottom aligned with photo */
+  gap: 28px;                      /* increases paragraph spacing */
 }
+
 .about-card p{
   margin: 0;
 }
@@ -100,7 +103,7 @@
   }
 
   .photo-card img{
-    width: 70%;
-    max-width: 280px;
+    width: 77%;
+    max-width: 308px;
   }
 }
