@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+
+  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}"/>
+
+  {% if page.extra_css %}
+    {% for css in page.extra_css %}
+      <link rel="stylesheet" href="{{ css | relative_url }}"/>
+    {% endfor %}
+  {% endif %}
+
+  {% if page.mathjax %}
+    {% include mathjax.html %}
+  {% endif %}
+</head>
+
+<body>
+  {% include nav.html %}
+
+  <main class="wrap">
+    {{ content }}
+    {% include footer.html %}
+  </main>
+
+  {% if page.extra_js %}
+    {% for js in page.extra_js %}
+      <script src="{{ js | relative_url }}"></script>
+    {% endfor %}
+  {% endif %}
+</body>
+</html>
