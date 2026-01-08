@@ -18,15 +18,18 @@
 .home-grid{
   margin-top: 16px;
   display: grid;
-  grid-template-columns: 0.62fr 1.93fr 1.25fr; /* photo column unchanged */
+  grid-template-columns: 0.62fr 1.93fr 1.25fr;
   gap: 16px;
-  align-items: start;
+
+  /* IMPORTANT: make the 3 boxes the same height */
+  align-items: stretch;
+
   grid-template-areas: "contact about photo";
 }
 
-.contact-card{ grid-area: contact; }
-.about-card{ grid-area: about; }
-.photo{ grid-area: photo; }
+.contact-card{ grid-area: contact; height: 100%; }
+.about-card{ grid-area: about; height: 100%; }
+.photo{ grid-area: photo; height: 100%; }
 
 /* Photo box */
 .photo{
@@ -34,15 +37,20 @@
   border: 1px solid var(--border);
   background: var(--card);
   padding: 10px;
+
+  /* center the image inside the stretched box */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Photo +10% (was 90%, now 99%) */
+/* Make photo a bit smaller */
 .photo img{
   display: block;
-  width: 99%;
+  width: 92%;
   height: auto;
+  max-height: 100%;
   border-radius: 12px;
-  margin: 0 auto;
 }
 
 /* Contact: value UNDER label */
@@ -51,9 +59,9 @@
   gap: 4px;
 }
 
-/* About: paragraph spacing doubled (32px) */
+/* About: increase paragraph spacing */
 .about-card p{
-  margin: 0 0 32px;
+  margin: 0 0 40px;
 }
 .about-card p:last-child{
   margin-bottom: 0;
@@ -70,6 +78,6 @@
   }
 
   .photo img{
-    width: 99%;
+    width: 92%;
   }
 }
