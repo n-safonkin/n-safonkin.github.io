@@ -88,12 +88,8 @@ body{
 }
 
 /* Links */
-a{
-  color: var(--accent);
-}
-a:hover{
-  text-decoration: underline;
-}
+a{ color: var(--accent); }
+a:hover{ text-decoration: underline; }
 
 /* Contact table (index page) */
 .contact-grid{ display: grid; gap: 10px; }
@@ -112,7 +108,6 @@ a:hover{
   font-weight: 650;
   font-size: .92rem;
 }
-
 .value{ color: var(--text); }
 
 .value a{
@@ -125,7 +120,7 @@ a:hover{
   .row{ grid-template-columns: 1fr; }
 }
 
-/* Footer (Yuan-style last-updated line) */
+/* Footer */
 .footer{
   margin-top: 28px;
   padding-top: 14px;
