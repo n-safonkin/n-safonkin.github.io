@@ -75,29 +75,29 @@ ol.papers{
   margin: 16px 0 0;
   display: grid;
   gap: 14px;
-  justify-items: center; /* NEW: center the boxes */
+  justify-items: center;
 }
 
-/* Paper box: centered + ~30% shorter */
+/* Paper box: centered + slightly taller (+10%) */
 li.paperitem{
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 16px;
 
-  width: min(900px, 100%); /* NEW: narrower than page, centered */
-  padding: 10px 16px;      /* NEW: ~30% less vertical padding */
+  width: min(900px, 100%);
+  padding: 11px 16px; /* was 10px 16px */
 }
 
 .paper-title{ font-weight: 750; }
-.paper-authors{ margin-top: 3px; color: var(--muted); } /* slightly tighter */
-.paper-venue{ margin-top: 3px; color: var(--muted); }   /* slightly tighter */
+.paper-authors{ margin-top: 3px; color: var(--muted); }
+.paper-venue{ margin-top: 3px; color: var(--muted); }
 
 .paper-links{
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
-  margin-top: 7px;     /* tighter */
-  margin-bottom: 7px;  /* tighter */
+  margin-top: 7px;
+  margin-bottom: 7px;
 }
 
 .pill{
@@ -123,7 +123,7 @@ li.paperitem{
 }
 
 .abstract{
-  margin-top: 7px; /* tighter */
+  margin-top: 7px;
   border-left: 3px solid var(--accent);
   padding-left: 12px;
 }
