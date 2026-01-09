@@ -78,14 +78,14 @@ ol.papers{
   justify-items: center;
 }
 
-/* Paper box: centered + slightly taller (+10%) */
+/* Paper box: centered + slightly wider (+10%) */
 li.paperitem{
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 16px;
 
-  width: min(900px, 100%);
-  padding: 11px 16px; /* was 10px 16px */
+  width: min(990px, 100%); /* was 900px */
+  padding: 10px 16px;
 }
 
 .paper-title{ font-weight: 750; }
