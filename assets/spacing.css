@@ -1,15 +1,36 @@
-/* Global spacing + width synchronizer (loaded last on every page) */
+/* Global spacing + width synchronizer (loaded on every page) */
 
+/* --- 1) SAME WIDTH + SAME LEFT/TOP ORIGIN EVERYWHERE --- */
 :root{
-  /* Slightly wider to compensate for bigger gaps */
-  --container: 1200px;
+  --container: 1200px;     /* same width on all pages */
+  --wrap-pad-top: 26px;    /* ensures hero top-left aligns */
+  --wrap-pad-x: 18px;      /* ensures hero left aligns */
+  --wrap-pad-bot: 60px;
 }
 
-/* Make all pages use the same width (nav + content) */
+/* nav and main content must share the same max-width */
 .nav,
 .wrap{
   max-width: var(--container) !important;
 }
+
+/* force identical padding for the main content block on ALL pages */
+.wrap{
+  padding: var(--wrap-pad-top) var(--wrap-pad-x) var(--wrap-pad-bot) !important;
+}
+
+/* force the first hero (“blue panel”) to start at the same place on all pages */
+.hero{
+  margin-top: 0 !important;
+}
+
+/* if a page puts hero as the very first child, remove any accidental top margin */
+.wrap > .hero:first-child,
+.wrap > section.hero:first-child{
+  margin-top: 0 !important;
+}
+
+/* --- 2) YOUR “DOUBLE SPACING” REQUEST (unchanged intent) --- */
 
 /* BIO page: double spacing between hero / photo / contact / about */
 .home-layout{
@@ -26,7 +47,7 @@ ol.papers{
   gap: 28px !important; /* was ~14px */
 }
 
-/* OTHER WRITINGS page: if it's a grid/flex container, increase gaps too */
+/* OTHER WRITINGS page: common containers (safe) */
 .writings,
 .writings-grid,
 .writings-list{
