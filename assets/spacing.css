@@ -58,3 +58,12 @@ ol.papers{
 .writings-list{
   gap: 28px !important;
 }
+
+/* --- 3) “LAST UPDATED” ON BIO: move it a bit higher --- */
+/* (Footer exists only on Bio in your setup, so this won’t affect other pages.) */
+footer,
+.footer,
+.site-footer{
+  position: relative !important;
+  bottom: 14px !important; /* move up slightly */
+}
