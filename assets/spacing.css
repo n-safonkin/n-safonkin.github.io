@@ -6,7 +6,6 @@ html{
 }
 
 /* --- 1) MAKE FOOTER ("Last updated") SIT AT THE BOTTOM OF THE VIEWPORT --- */
-/* Works whether the footer is inside .wrap or after it */
 html, body{
   height: 100%;
 }
@@ -33,7 +32,7 @@ footer,
   --container: 1200px;     /* same width on all pages */
   --wrap-pad-top: 26px;    /* ensures hero top-left aligns */
   --wrap-pad-x: 18px;      /* ensures hero left aligns */
-  --wrap-pad-bot: 60px;
+  --wrap-pad-bot: 40px;    /* was 60px → moves “Last updated” up a bit */
 }
 
 /* nav and main content must share the same max-width */
