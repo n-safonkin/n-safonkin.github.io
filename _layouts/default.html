@@ -3,33 +3,47 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-
-  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-
-  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}"/>
+  <title>{{ page.title }}</title>
 
   {% if page.extra_css %}
     {% for css in page.extra_css %}
-      <link rel="stylesheet" href="{{ css | relative_url }}"/>
+      <link rel="stylesheet" href="{{ css | relative_url }}">
     {% endfor %}
   {% endif %}
 
   {% if page.mathjax %}
-    {% include mathjax.html %}
+    <script>
+      window.MathJax = { tex: { macros: { Bbbk: "{\\mathbb{k}}" } } };
+    </script>
+    <script id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   {% endif %}
 </head>
 
 <body>
-  {% include nav.html %}
+  <header class="topbar">
+    <nav class="nav">
+      <a class="brand" href="{{ '/' | relative_url }}">Nikita Safonkin</a>
+
+      <a class="{% if page.url == '/' or page.url == '/index.html' %}active{% endif %}"
+         href="{{ '/' | relative_url }}">Bio</a>
+
+      <a class="{% if page.url == '/papers.html' %}active{% endif %}"
+         href="{{ '/papers.html' | relative_url }}">Papers</a>
+
+      <a class="{% if page.url == '/other_writings.html' %}active{% endif %}"
+         href="{{ '/other_writings.html' | relative_url }}">Other Writings</a>
+    </nav>
+  </header>
 
   <main class="wrap">
     {{ content }}
   </main>
 
   {% if page.show_footer %}
-    <div class="wrap">
-      {% include footer.html %}
-    </div>
+    <footer class="site-footer">
+      Last updated: {{ site.time | date: "%B %Y" }}
+    </footer>
   {% endif %}
 
   {% if page.extra_js %}
