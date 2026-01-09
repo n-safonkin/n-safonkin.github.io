@@ -1,30 +1,53 @@
-/* Other page only: smaller hero + thesis formatting + paper-style pill button */
+/* Other page only: match Papers page hero + box sizing */
 
-.other-hero{
-  padding: 12px; /* smaller blue box on this page only */
+/* Provide safe fallbacks (in case some variables are not defined globally) */
+:root{
+  --accent: var(--accent, #1155cc);
+  --card: var(--card, #ffffff);
+  --muted: var(--muted, #555);
+  --border: var(--border, rgba(0,0,0,.12));
 }
 
-/* keep the two thesis boxes nicely separated */
+/* Match Papers hero */
+.hero{
+  padding: 18px;
+  border-radius: 18px;
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+  background: linear-gradient(135deg,
+    color-mix(in srgb, var(--accent) 12%, white),
+    white);
+}
+
+/* Match Papers: centered list + same spacing as Papers list */
 .other-list{
-  gap: 28px;
+  gap: 14px;
+  justify-items: center;
 }
 
+/* Match Papers box size (width + padding) */
+.thesis-card{
+  width: min(1089px, 100%);
+  padding: 10px 16px;
+  border-radius: 16px;
+}
+
+/* Thesis text spacing */
 .thesis-card{
   display: grid;
-  gap: 10px;
+  gap: 6px;
 }
 
 .thesis-meta{
   color: var(--muted);
 }
 
-/* pill button like on Papers */
+/* Paper-style pill button */
 .pill{
   display: inline-block;
   padding: 7px 11px;
   border-radius: 999px;
-  border: 1px solid var(--accent, #1155cc);
-  color: var(--accent, #1155cc);
+  border: 1px solid var(--accent);
+  color: var(--accent);
   background: transparent;
   font: inherit;
   font-size: .92rem;
@@ -34,6 +57,6 @@
   user-select: none;
 }
 .pill:hover{
-  background: var(--accent, #1155cc);
+  background: var(--accent);
   color: white;
 }
