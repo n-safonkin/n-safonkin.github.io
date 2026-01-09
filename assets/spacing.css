@@ -1,4 +1,9 @@
-/* Global spacing + width synchronizer (loaded on every page) */
+/* Global spacing + width + alignment synchronizer (loaded on every page) */
+
+/* --- 0) FONT: bump up by ~1pt step globally (16px -> 17px) --- */
+html{
+  font-size: 106.25% !important;
+}
 
 /* --- 1) SAME WIDTH + SAME LEFT/TOP ORIGIN EVERYWHERE --- */
 :root{
@@ -30,7 +35,7 @@
   margin-top: 0 !important;
 }
 
-/* --- 2) YOUR “DOUBLE SPACING” REQUEST (unchanged intent) --- */
+/* --- 2) DOUBLE SPACING BETWEEN BLOCKS --- */
 
 /* BIO page: double spacing between hero / photo / contact / about */
 .home-layout{
