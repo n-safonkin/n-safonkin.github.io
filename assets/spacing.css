@@ -1,0 +1,36 @@
+:root{
+  /* Wider site to compensate for bigger gaps (applies to ALL pages) */
+  --site-width: 1180px;
+
+  /* Double the old spacing */
+  --gap-2x: 32px;        /* was ~16px */
+  --cards-gap-2x: 28px;  /* was ~14px */
+}
+
+/* Keep navbar and page content the same width everywhere */
+.nav,
+.wrap{
+  max-width: var(--site-width) !important;
+}
+
+/* BIO page: double spacing between hero/photo/contact/about (grid gap) */
+.home-layout{
+  gap: var(--gap-2x) !important;
+}
+
+/* BIO page: double spacing between the home grid and the Talks card below it */
+.home-layout + .card{
+  margin-top: var(--gap-2x) !important;
+}
+
+/* PAPERS page: double spacing between paper boxes */
+ol.papers{
+  gap: var(--cards-gap-2x) !important;
+}
+
+/* OTHER WRITINGS (and any other “box lists” you might have) */
+.writings,
+.other-writings,
+.card-list{
+  gap: var(--cards-gap-2x) !important;
+}
