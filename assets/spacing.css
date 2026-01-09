@@ -5,7 +5,30 @@ html{
   font-size: 106.25% !important;
 }
 
-/* --- 1) SAME WIDTH + SAME LEFT/TOP ORIGIN EVERYWHERE --- */
+/* --- 1) MAKE FOOTER ("Last updated") SIT AT THE BOTTOM OF THE VIEWPORT --- */
+/* Works whether the footer is inside .wrap or after it */
+html, body{
+  height: 100%;
+}
+body{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.wrap{
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* push footer down when page content is short (so it's not right after talks) */
+footer,
+.footer,
+.site-footer{
+  margin-top: auto !important;
+}
+
+/* --- 2) SAME WIDTH + SAME LEFT/TOP ORIGIN EVERYWHERE --- */
 :root{
   --container: 1200px;     /* same width on all pages */
   --wrap-pad-top: 26px;    /* ensures hero top-left aligns */
@@ -35,7 +58,7 @@ html{
   margin-top: 0 !important;
 }
 
-/* --- 2) DOUBLE SPACING BETWEEN BLOCKS --- */
+/* --- 3) DOUBLE SPACING BETWEEN BLOCKS --- */
 
 /* BIO page: double spacing between hero / photo / contact / about */
 .home-layout{
@@ -57,13 +80,4 @@ ol.papers{
 .writings-grid,
 .writings-list{
   gap: 28px !important;
-}
-
-/* --- 3) “LAST UPDATED” ON BIO: move it a bit higher --- */
-/* (Footer exists only on Bio in your setup, so this won’t affect other pages.) */
-footer,
-.footer,
-.site-footer{
-  position: relative !important;
-  bottom: 14px !important; /* move up slightly */
 }
