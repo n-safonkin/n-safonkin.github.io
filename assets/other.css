@@ -1,0 +1,39 @@
+/* Other page only: smaller hero + thesis formatting + paper-style pill button */
+
+.other-hero{
+  padding: 12px; /* smaller blue box on this page only */
+}
+
+/* keep the two thesis boxes nicely separated */
+.other-list{
+  gap: 28px;
+}
+
+.thesis-card{
+  display: grid;
+  gap: 10px;
+}
+
+.thesis-meta{
+  color: var(--muted);
+}
+
+/* pill button like on Papers */
+.pill{
+  display: inline-block;
+  padding: 7px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--accent, #1155cc);
+  color: var(--accent, #1155cc);
+  background: transparent;
+  font: inherit;
+  font-size: .92rem;
+  line-height: 1;
+  cursor: pointer;
+  text-decoration: none;
+  user-select: none;
+}
+.pill:hover{
+  background: var(--accent, #1155cc);
+  color: white;
+}
