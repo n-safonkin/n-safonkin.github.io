@@ -7,11 +7,19 @@ extra_css:
   - /assets/spacing.css
 ---
 
+<style>
+  /* Only on this page: thesis titles must NOT be bold */
+  .thesis-title{
+    font-weight: 400;
+    font-style: italic;
+  }
+</style>
+
 <ol class="papers">
 
   <li class="paperitem">
     <div class="paper-title">
-      <b>PhD Thesis</b>: <i>&ldquo;Harmonic functions on branching graphs&rdquo;</i>
+      <b>PhD Thesis</b>: <span class="thesis-title">&ldquo;Harmonic functions on branching graphs&rdquo;</span>
     </div>
     <div class="paper-venue">
       University of Reims Champagne-Ardenne, (2023), supervised by G. Olshanski.
@@ -24,7 +32,7 @@ extra_css:
 
   <li class="paperitem">
     <div class="paper-title">
-      <b>Master&rsquo;s Thesis</b>: <i>&ldquo;Infinite-dimensional Representations of the Quantized Algebra U(gl_N)&rdquo;</i>
+      <b>Master&rsquo;s Thesis</b>: <span class="thesis-title">&ldquo;Infinite-dimensional Representations of the Quantized Algebra U(gl_N)&rdquo;</span>
     </div>
     <div class="paper-venue">
       Higher School of Economics &amp; Skoltech, (2019), supervised by G. Olshanski.
