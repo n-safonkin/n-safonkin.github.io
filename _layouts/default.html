@@ -5,12 +5,17 @@
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>{{ page.title }}</title>
 
+  <!-- Base site styles (DO NOT REMOVE) -->
+  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+
+  <!-- Page-specific extra CSS -->
   {% if page.extra_css %}
     {% for css in page.extra_css %}
       <link rel="stylesheet" href="{{ css | relative_url }}">
     {% endfor %}
   {% endif %}
 
+  <!-- MathJax on demand -->
   {% if page.mathjax %}
     <script>
       window.MathJax = { tex: { macros: { Bbbk: "{\\mathbb{k}}" } } };
@@ -46,6 +51,7 @@
     </footer>
   {% endif %}
 
+  <!-- Page-specific extra JS -->
   {% if page.extra_js %}
     {% for js in page.extra_js %}
       <script src="{{ js | relative_url }}"></script>
