@@ -5,34 +5,12 @@ html{
   font-size: 106.25% !important;
 }
 
-/* --- 1) MAKE FOOTER ("Last updated") SIT AT THE BOTTOM OF THE VIEWPORT --- */
-html, body{
-  height: 100%;
-}
-body{
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-.wrap{
-  flex: 1 0 auto;
-  display: flex;
-  flex-direction: column;
-}
-
-/* push footer down when page content is short (so it's not right after talks) */
-footer,
-.footer,
-.site-footer{
-  margin-top: auto !important;
-}
-
-/* --- 2) SAME WIDTH + SAME LEFT/TOP ORIGIN EVERYWHERE --- */
+/* --- 1) SAME WIDTH + SAME LEFT/TOP ORIGIN EVERYWHERE --- */
 :root{
   --container: 1200px;     /* same width on all pages */
   --wrap-pad-top: 26px;    /* ensures hero top-left aligns */
   --wrap-pad-x: 18px;      /* ensures hero left aligns */
-  --wrap-pad-bot: 40px;    /* was 60px → moves “Last updated” up a bit */
+  --wrap-pad-bot: 28px;    /* keep consistent across pages */
 }
 
 /* nav and main content must share the same max-width */
@@ -50,33 +28,43 @@ footer,
 .hero{
   margin-top: 0 !important;
 }
-
-/* if a page puts hero as the very first child, remove any accidental top margin */
 .wrap > .hero:first-child,
 .wrap > section.hero:first-child{
   margin-top: 0 !important;
 }
 
-/* --- 3) DOUBLE SPACING BETWEEN BLOCKS --- */
-
-/* BIO page: double spacing between hero / photo / contact / about */
+/* --- 2) DOUBLE SPACING BETWEEN BLOCKS --- */
 .home-layout{
   gap: 32px !important; /* was ~16px */
 }
-
-/* BIO page: double spacing between the home grid and the Talks card */
 .home-layout + .card{
   margin-top: 32px !important; /* was ~16px */
 }
-
-/* PAPERS page: double spacing between paper boxes */
 ol.papers{
   gap: 28px !important; /* was ~14px */
 }
-
-/* OTHER WRITINGS page: common containers (safe) */
 .writings,
 .writings-grid,
 .writings-list{
   gap: 28px !important;
+}
+
+/* --- 3) BIO ONLY: keep "Last updated" at the bottom of the visible page
+          WITHOUT increasing page height (so Bio doesn’t become scrollable) --- */
+body:has(.home-layout) footer,
+body:has(.home-layout) .site-footer,
+body:has(.home-layout) .footer{
+  position: fixed !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  bottom: 14px !important;
+  width: min(var(--container), calc(100% - (2 * var(--wrap-pad-x)))) !important;
+  z-index: 50 !important;
+}
+
+/* Optional: keep the footer text aligned like the rest of the content */
+body:has(.home-layout) footer,
+body:has(.home-layout) .site-footer,
+body:has(.home-layout) .footer{
+  padding: 0 var(--wrap-pad-x) !important;
 }
