@@ -49,8 +49,8 @@ ol.papers{
   gap: 28px !important;
 }
 
-/* --- 3) BIO ONLY: keep "Last updated" at the bottom of the visible page
-          WITHOUT increasing page height (so Bio doesn’t become scrollable) --- */
+/* --- 3) BIO ONLY: keep "Last updated" at bottom of visible page
+          WITHOUT increasing page height, AND CENTER IT --- */
 body:has(.home-layout) footer,
 body:has(.home-layout) .site-footer,
 body:has(.home-layout) .footer{
@@ -58,13 +58,10 @@ body:has(.home-layout) .footer{
   left: 50% !important;
   transform: translateX(-50%) !important;
   bottom: 14px !important;
+
   width: min(var(--container), calc(100% - (2 * var(--wrap-pad-x)))) !important;
   z-index: 50 !important;
-}
 
-/* Optional: keep the footer text aligned like the rest of the content */
-body:has(.home-layout) footer,
-body:has(.home-layout) .site-footer,
-body:has(.home-layout) .footer{
-  padding: 0 var(--wrap-pad-x) !important;
+  text-align: center !important; /* CENTER */
+  padding: 0 !important;         /* no side padding needed for centered text */
 }
