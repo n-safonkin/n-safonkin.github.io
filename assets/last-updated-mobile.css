@@ -1,0 +1,25 @@
+/* Mobile fix: keep "Last updated" centered at the bottom WITHOUT covering content. */
+@media (max-width: 720px){
+
+  /* Covers the two most likely implementations */
+  .site-footer,
+  .last-updated{
+    position: sticky !important;
+    bottom: 0 !important;
+
+    left: 0 !important;
+    right: 0 !important;
+    transform: none !important;
+
+    width: 100% !important;
+    text-align: center !important;
+
+    /* make it look intentional and avoid visual overlap */
+    background: var(--bg) !important;
+    border-top: 1px solid var(--border) !important;
+    padding: 10px 12px 12px !important;
+
+    z-index: 20 !important;
+  }
+
+}
