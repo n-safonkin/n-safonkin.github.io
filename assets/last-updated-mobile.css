@@ -1,25 +1,49 @@
-/* Mobile fix: keep "Last updated" centered at the bottom WITHOUT covering content. */
-@media (max-width: 720px){
+/* Bio page only (because only index.html includes this file):
+   Make "Last updated" sit at the bottom center WITHOUT covering content,
+   on both desktop and mobile. */
 
-  /* Covers the two most likely implementations */
-  .site-footer,
-  .last-updated{
-    position: sticky !important;
-    bottom: 0 !important;
+/* 1) Turn the page into a flex column so the footer can be pushed down. */
+html, body { height: 100%; }
 
-    left: 0 !important;
-    right: 0 !important;
-    transform: none !important;
+body{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
-    width: 100% !important;
-    text-align: center !important;
+/* If your layout wraps everything in .wrap, make it flex too (safe for bio only). */
+.wrap{
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
 
-    /* make it look intentional and avoid visual overlap */
-    background: var(--bg) !important;
-    border-top: 1px solid var(--border) !important;
-    padding: 10px 12px 12px !important;
+/* 2) Force the footer / last-updated element to be normal flow (no overlay),
+      and push it to the bottom when there is extra vertical space. */
+.site-footer,
+.last-updated{
+  position: static !important;
+  top: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  transform: none !important;
 
-    z-index: 20 !important;
-  }
+  width: 100% !important;
+  text-align: center !important;
 
+  margin-top: auto !important;   /* key: pushes it to the bottom */
+  flex-shrink: 0 !important;
+
+  background: var(--bg, #fff) !important;
+  border-top: 1px solid var(--border, rgba(0,0,0,0.08)) !important;
+  padding: 12px 12px 16px !important;
+
+  z-index: 1 !important;
+}
+
+/* If your footer is inside .wrap, this helps ensure it’s the last flex item. */
+.wrap .site-footer,
+.wrap .last-updated{
+  margin-top: auto !important;
 }
