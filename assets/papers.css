@@ -17,8 +17,14 @@
   margin: 0;
 }
 
-.papers-area{
+/* Outer container holds the theses sidebar, the hero, and the paper list,
+   so the theses sidebar (position: absolute) can anchor its top to the
+   hero's top instead of the paper list's top. */
+.papers-page{
   position: relative;
+}
+
+.papers-area{
   margin-top: 24px;
 }
 

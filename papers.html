@@ -10,11 +10,7 @@ extra_js:
   - /assets/papers.js
 ---
 
-<section class="hero">
-  <h1>Papers</h1>
-</section>
-
-<div class="papers-area">
+<div class="papers-page">
 
   <aside class="theses-side">
     <button class="theses-toggle" type="button" data-toggle="theses-content" aria-expanded="false" aria-controls="theses-content">Theses</button>
@@ -31,6 +27,12 @@ extra_js:
       </ul>
     </div>
   </aside>
+
+  <section class="hero">
+    <h1>Papers</h1>
+  </section>
+
+  <div class="papers-area">
 
   <ol class="papers" reversed>
   {% for paper in site.data.papers %}
@@ -54,4 +56,5 @@ extra_js:
   {% endfor %}
   </ol>
 
+  </div>
 </div>
