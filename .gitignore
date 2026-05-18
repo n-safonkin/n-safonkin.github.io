@@ -1,0 +1,9 @@
+# Jekyll build output & caches (local preview only)
+_site/
+.jekyll-cache/
+.sass-cache/
+.jekyll-metadata
+
+# Bundler — gems installed locally for jekyll serve
+vendor/
+.bundle/
