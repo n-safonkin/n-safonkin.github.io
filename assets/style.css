@@ -1,8 +1,9 @@
 :root{
-  /* Active preset: Periwinkle (warm-purple-shifted). Minimalistic Cream uses #9c5d24 + #faf7f1. */
-  --accent: #4a3c9c;   /* warm blue-purple */
+  /* Active preset: Periwinkle (original + 2.5% purple + 2.5% blue mixed in).
+     Minimalistic Cream uses #9c5d24 + #faf7f1. */
+  --accent: #3b579c;   /* blue-purple */
 
-  --bg: #f0eefa;       /* pale warm periwinkle */
+  --bg: #e8e7f7;       /* pale periwinkle with a hint more purple/blue */
   --card: #ffffff;
   --text: #1a1a1a;
   --muted: #555;
@@ -48,7 +49,7 @@ body{
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(240, 238, 250, 0.88); /* matches --bg (Periwinkle, warm-purple-shifted); Minimalistic Cream uses rgba(250, 247, 241, 0.88) */
+  background: rgba(232, 231, 247, 0.88); /* matches --bg (Periwinkle, +2.5% purple +2.5% blue); Minimalistic Cream uses rgba(250, 247, 241, 0.88) */
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
 }
