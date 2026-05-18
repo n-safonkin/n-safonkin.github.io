@@ -1,31 +1,15 @@
 /* Paper list (used on papers.html).
    All global layout/nav/topbar rules live in style.css. */
 
-/* Match the hero width to the narrower (800px) paper-card column.
-   Only applies on the papers page since this CSS file is page-scoped. */
-.hero{
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Match the "Papers" h1 to the bio's "Nikita Safonkin" h1 styling
-   (otherwise it inherits the smaller default h1 size). */
-.hero h1{
-  font-size: 2.25rem;
-  line-height: 1.12;
-  margin: 0;
-}
-
-/* Outer container holds the theses sidebar, the hero, and the paper list,
-   so the theses sidebar (position: absolute) can anchor its top to the
-   hero's top instead of the paper list's top. */
+/* Outer container holds the theses sidebar and the paper list, so the
+   theses sidebar (position: absolute) can anchor its top to the
+   first paper's top. */
 .papers-page{
   position: relative;
 }
 
 .papers-area{
-  margin-top: 24px;
+  margin-top: 0;
 }
 
 /* === Theses sidebar — narrow viewport default === */
@@ -98,12 +82,11 @@
 
 /* Wide viewports: anchor in the centered position of the RIGHT empty space.
    position: absolute (NOT fixed) — the box scrolls away with the page.
-   top: 80px puts the box's top just below the hero's bottom edge, so
-   it visually sits between the header and the first paper. */
+   top: 0 puts the box's top at the same y as the first paper's top. */
 @media (min-width: 1300px){
   .theses-side{
     position: absolute;
-    top: 80px;
+    top: 0;
     right: calc(82px - (100vw - 1200px) / 4);
     transform: translateX(50%);
     width: clamp(200px, calc((100vw - 1200px) / 2 + 168px), 400px);
