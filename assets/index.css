@@ -92,6 +92,15 @@
   margin: 0;
 }
 
+.about-research h3{
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+}
+
+.about-research p{
+  margin: 0;
+}
+
 /* Recent Talks card: tighter spacing to keep the page within one viewport */
 .talks-card{
   padding: 10px 14px;
