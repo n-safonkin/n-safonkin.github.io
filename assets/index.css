@@ -98,7 +98,7 @@
 }
 
 .talks-card h2{
-  margin: 0 0 6px;
+  margin: 0 0 8px;
 }
 
 .talks-card .talks-list{
@@ -107,7 +107,7 @@
 }
 
 .talks-card .talks-list li{
-  margin: 0 0 4px;
+  margin: 0 0 8px;
 }
 
 .talks-card .talks-list li:last-child{
