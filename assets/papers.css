@@ -58,13 +58,17 @@
   margin-top: 2px;
 }
 
-/* Wide viewports: float in the centered position of the left empty space.
-   Math updated for the narrower 800px paper list. */
+/* Wide viewports: anchor in the centered position of the left empty space.
+   position: absolute (NOT fixed) — the box scrolls away with the page.
+   top: 0 aligns the box's top border with the first paper item's top. */
 @media (min-width: 1300px){
   .theses-side{
-    position: fixed;
-    top: 110px;
-    left: calc((100vw - 800px) / 4);
+    position: absolute;
+    top: 0;
+    /* Center horizontally in the empty space between the viewport's left
+       edge and the papers list's left edge. The left value is relative to
+       .papers-area; the transform shifts by -50% of the box's own width. */
+    left: calc(82px - (100vw - 1200px) / 4);
     transform: translateX(-50%);
     width: clamp(200px, calc((100vw - 1200px) / 2 + 168px), 400px);
     margin: 0;
