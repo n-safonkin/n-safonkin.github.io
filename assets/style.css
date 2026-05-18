@@ -1,7 +1,7 @@
 :root{
   --accent: #3b5b9a;   /* softened from #1155cc */
 
-  --bg: #f1f3fa;       /* pale periwinkle (was warm cream #faf7f1) */
+  --bg: #faf7f1;       /* warm cream (alt: periwinkle #f1f3fa) */
   --card: #ffffff;
   --text: #1a1a1a;
   --muted: #555;
@@ -47,7 +47,7 @@ body{
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(241, 243, 250, 0.88); /* matches --bg */
+  background: rgba(250, 247, 241, 0.88); /* matches --bg */
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
 }
