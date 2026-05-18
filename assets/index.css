@@ -1,147 +1,129 @@
-/* ====== Desktop layout: hero hero photo / contact about photo ====== */
-.home-layout{
-  margin-top: 0;
-  display: grid;
-  /* Photo column shrunk from 1.25fr → 1.05fr (≈ 0.9× its previous width).
-     The freed space flows into the contact and about columns. */
-  grid-template-columns: 0.62fr 1.55fr 1.05fr;
-  grid-template-rows: auto 1fr;
-  gap: 20px;
-  align-items: stretch;
-  grid-template-areas:
-    "hero   hero   photo"
-    "contact about  photo";
+/* === Bio hero — borderless banner, just typography on the bg === */
+.bio-hero{
+  padding: 8px 0 22px;
+  margin: 0 0 28px;
+  border-bottom: 1px solid var(--border);
 }
 
-.home-layout + .card{
-  margin-top: 18px;
+.bio-hero h1{
+  font-size: 2.6rem;
+  line-height: 1.08;
+  margin: 0 0 6px;
 }
 
-.hero-home{ grid-area: hero; }
-.photo-card{ grid-area: photo; }
-.contact-card{ grid-area: contact; height: 100%; }
-.about-card{ grid-area: about; height: 100%; }
-
-/* Hero tuning */
-.hero-home{
-  padding: 18px 22px;
-}
-.hero-home h1{
-  font-size: 2.25rem;
-  line-height: 1.12;
-  margin: 0 0 8px;
-}
-.hero-home .sub{
-  font-size: 1.08rem;
+.bio-hero .sub{
+  font-size: 1.1rem;
   line-height: 1.4;
   margin: 0;
   color: var(--muted);
 }
 
-/* Photo card: spans both rows. 5px white matting around the image
-   gives a framed-photo look on the cream bg. */
-.photo-card{
-  padding: 5px;
-  display: block;
-  overflow: hidden;
+/* === Bio grid: narrow left rail (contact) + wide main column (about) === */
+.bio-grid{
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 48px;
+  padding: 0 0 28px;
+  margin: 0 0 28px;
+  border-bottom: 1px solid var(--border);
 }
 
-.photo-card img{
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border: none;
-  border-radius: 10px;
+.bio-contact h2,
+.bio-about h2{
+  margin: 0 0 14px;
 }
 
-/* Contact: spread sections evenly */
-.contact-card{
+/* Compact contact rail — labels stack above values, no row grid */
+.bio-contact .contact-grid{
   display: flex;
   flex-direction: column;
+  gap: 14px;
 }
 
-.contact-card .contact-grid{
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 18px;
-}
-
-.contact-card .row{
+.bio-contact .row{
   display: block;
+  grid-template-columns: none;
   padding: 0;
+  border-bottom: none;
 }
 
-.contact-card .label{
-  margin: 0 0 4px;
+.bio-contact .label{
+  margin: 0 0 2px;
 }
 
-/* About: spread paragraphs evenly */
-.about-card{
+.bio-about .about-body{
   display: flex;
   flex-direction: column;
+  gap: 14px;
 }
 
-.about-card .about-body{
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 18px;
-}
-
-.about-card p{
+.bio-about .about-body p{
   margin: 0;
 }
 
-.about-research h2{
-  margin: 0 0 10px;
+.bio-about .about-research h2{
+  margin: 0 0 8px;
+  font-size: 1.3rem;
 }
 
-.about-research p{
+.bio-about .about-research p{
   margin: 0;
 }
 
-/* Recent Talks card: tighter spacing to keep the page within one viewport */
-.talks-card{
-  padding: 10px 14px;
-}
-
-.talks-card h2{
+/* === Talks — year-gutter timeline === */
+.bio-talks h2{
   margin: 0 0 16px;
 }
 
-.talks-card .talks-list{
+.talks-list{
+  list-style: none;
   margin: 0;
-  padding-left: 18px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.talks-card .talks-list li{
-  margin: 0 0 12px;
+.talks-list li{
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  column-gap: 18px;
+  margin: 0;
 }
 
-/* ====== Mobile ====== */
+.talk-year{
+  font-family: var(--font-serif);
+  font-variant-numeric: oldstyle-nums;
+  font-size: 1.1rem;
+  color: var(--muted);
+  font-weight: 600;
+  line-height: 1.45;
+  padding-top: 1px;
+}
+
+.talk-content{
+  line-height: 1.45;
+}
+
+.talk-date{
+  color: var(--muted);
+}
+
+/* === Mobile === */
 @media (max-width: 900px){
-  .home-layout{
+  .bio-grid{
     grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    grid-template-areas:
-      "photo"
-      "hero"
-      "about"
-      "contact";
+    gap: 28px;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
   }
 
-  .photo-card{
-    padding: 10px;
+  .bio-hero h1{
+    font-size: 2.2rem;
   }
-  .photo-card img{
-    width: 78%;
-    max-width: 330px;
-    height: auto;
-    object-fit: initial;
-    margin: 0 auto;
+
+  .talks-list li{
+    grid-template-columns: 48px 1fr;
+    column-gap: 12px;
   }
 }

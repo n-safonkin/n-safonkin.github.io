@@ -64,6 +64,9 @@ body{
 }
 
 .brand{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-family: var(--font-serif);
   font-weight: 700;
   font-size: 1.35rem;
@@ -71,6 +74,15 @@ body{
   color: var(--text);
   margin-right: 14px;
   letter-spacing: -0.005em;
+}
+
+.brand-avatar{
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  flex-shrink: 0;
 }
 
 .nav a{
@@ -107,7 +119,7 @@ main.wrap{
    gradient (saved in memory). */
 .hero{
   padding: 18px;
-  border-radius: 18px;
+  border-radius: 8px;
   border: 1px solid var(--border);
   background: white;
 }
@@ -115,7 +127,7 @@ main.wrap{
 .card{
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: 8px;
   padding: 14px 16px;
 }
 

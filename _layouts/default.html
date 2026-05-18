@@ -45,7 +45,10 @@
 <body>
   <header class="topbar">
     <nav class="nav">
-      <a class="brand" href="{{ '/' | relative_url }}">Nikita Safonkin</a>
+      <a class="brand" href="{{ '/' | relative_url }}">
+        <img class="brand-avatar" src="{{ '/assets/me.jpg' | relative_url }}" alt="" aria-hidden="true">
+        <span>Nikita Safonkin</span>
+      </a>
 
       <a class="{% if page.url == '/papers.html' %}active{% endif %}"
          href="{{ '/papers.html' | relative_url }}">Papers</a>

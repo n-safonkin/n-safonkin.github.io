@@ -8,19 +8,15 @@ extra_css:
   - /assets/last-updated-mobile.css
 ---
 
-<section class="home-layout">
+<section class="bio-hero">
+  <h1>Nikita Safonkin</h1>
+  <p class="sub">Postdoctoral researcher at Leipzig University</p>
+</section>
 
-  <section class="hero hero-home">
-    <h1>Nikita Safonkin</h1>
-    <p class="sub">Postdoctoral researcher at Leipzig University</p>
-  </section>
+<div class="bio-grid">
 
-  <div class="card photo-card">
-    <img src="{{ '/assets/me.jpg' | relative_url }}" alt="Photo of Nikita Safonkin">
-  </div>
-
-  <div class="card contact-card">
-    <h2 style="margin:0 0 10px;">Contact</h2>
+  <aside class="bio-contact">
+    <h2>Contact</h2>
 
     <div class="contact-grid">
       <div class="row">
@@ -41,10 +37,10 @@ extra_css:
         <div class="value">A409 (Neues Augusteum)</div>
       </div>
     </div>
-  </div>
+  </aside>
 
-  <div class="card about-card">
-    <h2 style="margin:0 0 10px;">About</h2>
+  <section class="bio-about">
+    <h2>About</h2>
 
     <div class="about-body">
       <p>
@@ -69,22 +65,25 @@ extra_css:
         My papers on <a href="https://arxiv.org/a/safonkin_n_1" target="_blank" rel="noopener">arXiv</a>.
       </p>
     </div>
-  </div>
+  </section>
 
-</section>
+</div>
 
-<div class="card talks-card">
+<section class="bio-talks">
   <h2>Recent Talks</h2>
 
   <ul class="talks-list">
+  {% assign prev_year = "" %}
   {% for talk in site.data.talks %}
+    {% assign year = talk.date | split: ", " | last %}
     <li>
-      {{ talk.venue }} ({{ talk.date }}) ·
-      <a href="{{ talk.link }}" target="_blank" rel="noopener">link</a>
+      <span class="talk-year">{% if year != prev_year %}{{ year }}{% endif %}</span>
+      <span class="talk-content">{{ talk.venue }} <span class="talk-date">({{ talk.date }})</span> &middot; <a href="{{ talk.link }}" target="_blank" rel="noopener">link</a></span>
     </li>
+    {% assign prev_year = year %}
   {% endfor %}
   </ul>
-</div>
+</section>
 
 <script type="application/ld+json">
 {

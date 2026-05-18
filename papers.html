@@ -33,7 +33,7 @@ extra_js:
   <ol class="papers" reversed>
   {% for paper in site.data.papers %}
     {% assign abs_id = "abs-" | append: forloop.index %}
-    <li class="paperitem">
+    <li class="paperitem" data-num="{{ forloop.rindex }}">
       <div class="paper-title"><i>{{ paper.title }}</i></div>
       <div class="paper-authors">{{ paper.authors }}</div>
       <div class="paper-venue">{{ paper.venue }}</div>
