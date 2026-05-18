@@ -7,3 +7,6 @@ _site/
 # Bundler — gems installed locally for jekyll serve
 vendor/
 .bundle/
+
+# macOS Finder
+.DS_Store
