@@ -101,19 +101,14 @@ main.wrap{
 }
 
 /* === Shared blocks === */
-/* Hero gradient — Cream-theme warm version. White at top-left so the
-   heading (which sits in the top-left of the panel) reads on white,
-   warm sand fades in at bottom-right for visual interest. Periwinkle
-   preset uses the original cool blue-purple gradient (saved in memory). */
+/* Hero — Cream-theme uses a plain white panel for max heading contrast
+   on the cream bg. Periwinkle preset uses the original cool blue-purple
+   gradient (saved in memory). */
 .hero{
   padding: 18px;
   border-radius: 18px;
-  border: 1px solid rgba(176, 132, 60, 0.22);
-  background: linear-gradient(
-    135deg,
-    white,
-    #f7eddf
-  );
+  border: 1px solid var(--border);
+  background: white;
 }
 
 .card{

@@ -98,15 +98,12 @@
 
 /* Wide viewports: anchor in the centered position of the RIGHT empty space.
    position: absolute (NOT fixed) — the box scrolls away with the page.
-   top: 0 anchors to .papers-page's top (= hero's top border). */
+   top: 80px puts the box's top just below the hero's bottom edge, so
+   it visually sits between the header and the first paper. */
 @media (min-width: 1300px){
   .theses-side{
     position: absolute;
-    top: 0;
-    /* Center horizontally in the empty space between the papers list's
-       right edge and the viewport's right edge. Mirror of the left math:
-       same numeric distance from .papers-page's right edge as the left
-       version used from the left edge. */
+    top: 80px;
     right: calc(82px - (100vw - 1200px) / 4);
     transform: translateX(50%);
     width: clamp(200px, calc((100vw - 1200px) / 2 + 168px), 400px);
