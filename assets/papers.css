@@ -51,17 +51,14 @@
 }
 
 /* Wide viewports: float in the centered position of the left empty space.
-   Uses position: fixed anchored directly to the viewport — robust against
-   any containing-block / scrollbar weirdness. Width scales 200 → 400 px
-   as the viewport widens. Threshold raised to 1600 px so the box always
-   has room to sit without overlapping the papers list. */
-@media (min-width: 1600px){
+   Math updated for the narrower 800px paper list. */
+@media (min-width: 1300px){
   .theses-side{
     position: fixed;
     top: 110px;
-    left: calc((100vw - 1089px) / 4);
+    left: calc((100vw - 800px) / 4);
     transform: translateX(-50%);
-    width: clamp(200px, calc((100vw - 1089px) / 2 - 32px), 400px);
+    width: clamp(200px, calc((100vw - 1200px) / 2 + 168px), 400px);
     margin: 0;
     z-index: 5;
   }
@@ -79,7 +76,7 @@ ol.papers{
 
 li.paperitem{
   display: block;
-  max-width: 1089px;
+  max-width: 800px;
   width: 100%;
   min-width: 0;
   margin: 0 auto 28px;
