@@ -10,72 +10,46 @@ extra_js:
   - /assets/papers.js
 ---
 
-<style>
-  /* Thesis titles: italic, not bold */
-  .thesis-title{
-    font-weight: 400;
-    font-style: italic;
-  }
-  .papers-subheading{
-    margin: 28px 0 12px;
-    font-size: 1.4rem;
-  }
-</style>
-
 <section class="hero">
   <h1 style="margin:0;">Papers</h1>
 </section>
 
-<h2 class="papers-subheading">Theses</h2>
+<div class="papers-area">
 
-<ol class="papers">
-  <li class="paperitem">
-    <div class="paper-title">
-      <b>PhD Thesis</b>: <span class="thesis-title">&ldquo;Harmonic functions on branching graphs&rdquo;</span>
-    </div>
-    <div class="paper-venue">
-      University of Reims Champagne-Ardenne, (2023), supervised by G. Olshanski.
-    </div>
+  <aside class="theses-side">
+    <h3>Theses</h3>
+    <ul class="theses-list">
+      <li>
+        <a href="{{ '/assets/other_writings/phd-thesis.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer">PhD Thesis (2023)</a>
+        <div class="thesis-meta">Harmonic functions on branching graphs</div>
+      </li>
+      <li>
+        <a href="{{ '/assets/other_writings/masters-thesis.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer">Master&rsquo;s Thesis (2019)</a>
+        <div class="thesis-meta">Infinite-dimensional representations of U_q(gl_N)</div>
+      </li>
+    </ul>
+  </aside>
 
-    <div class="paper-links">
-      <a class="pill" href="{{ '/assets/other_writings/phd-thesis.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer">PDF</a>
-    </div>
-  </li>
+  <ol class="papers" reversed>
+  {% for paper in site.data.papers %}
+    {% assign abs_id = "abs-" | append: forloop.index %}
+    <li class="paperitem">
+      <div class="paper-title"><i>{{ paper.title }}</i></div>
+      <div class="paper-authors">{{ paper.authors }}</div>
+      <div class="paper-venue">{{ paper.venue }}</div>
 
-  <li class="paperitem">
-    <div class="paper-title">
-      <b>Master&rsquo;s Thesis</b>: <span class="thesis-title">&ldquo;Infinite-dimensional Representations of the Quantized Algebra U(gl_N)&rdquo;</span>
-    </div>
-    <div class="paper-venue">
-      Higher School of Economics &amp; Skoltech, (2019), supervised by G. Olshanski.
-    </div>
+      <div class="paper-links">
+        <button class="pill" type="button" data-toggle="{{ abs_id }}" aria-expanded="false" aria-controls="{{ abs_id }}">Abstract</button>
+        {% if paper.pdf %}<a class="pill" href="{{ paper.pdf }}" target="_blank" rel="noopener noreferrer">PDF</a>{% endif %}
+        {% if paper.arxiv %}<a class="pill" href="{{ paper.arxiv }}" target="_blank" rel="noopener noreferrer">arXiv</a>{% endif %}
+        {% if paper.journal %}<a class="pill" href="{{ paper.journal }}" target="_blank" rel="noopener noreferrer">Journal</a>{% endif %}
+      </div>
 
-    <div class="paper-links">
-      <a class="pill" href="{{ '/assets/other_writings/masters-thesis.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer">PDF</a>
-    </div>
-  </li>
-</ol>
+      <div id="{{ abs_id }}" class="abstract is-hidden">
+        {{ paper.abstract }}
+      </div>
+    </li>
+  {% endfor %}
+  </ol>
 
-<h2 class="papers-subheading">Publications &amp; Preprints</h2>
-
-<ol class="papers" reversed>
-{% for paper in site.data.papers %}
-  {% assign abs_id = "abs-" | append: forloop.index %}
-  <li class="paperitem">
-    <div class="paper-title"><i>{{ paper.title }}</i></div>
-    <div class="paper-authors">{{ paper.authors }}</div>
-    <div class="paper-venue">{{ paper.venue }}</div>
-
-    <div class="paper-links">
-      <button class="pill" type="button" data-toggle="{{ abs_id }}" aria-expanded="false" aria-controls="{{ abs_id }}">Abstract</button>
-      {% if paper.pdf %}<a class="pill" href="{{ paper.pdf }}" target="_blank" rel="noopener noreferrer">PDF</a>{% endif %}
-      {% if paper.arxiv %}<a class="pill" href="{{ paper.arxiv }}" target="_blank" rel="noopener noreferrer">arXiv</a>{% endif %}
-      {% if paper.journal %}<a class="pill" href="{{ paper.journal }}" target="_blank" rel="noopener noreferrer">Journal</a>{% endif %}
-    </div>
-
-    <div id="{{ abs_id }}" class="abstract is-hidden">
-      {{ paper.abstract }}
-    </div>
-  </li>
-{% endfor %}
-</ol>
+</div>

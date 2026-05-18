@@ -1,10 +1,76 @@
-/* Paper list (used on papers.html and other.html).
+/* Paper list (used on papers.html).
    All global layout/nav/topbar rules live in style.css. */
 
+.papers-area{
+  position: relative;
+  margin-top: 24px;
+}
+
+/* === Theses sidebar === */
+.theses-side{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: .92rem;
+}
+
+.theses-side h3{
+  margin: 0 0 8px;
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 650;
+}
+
+.theses-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.theses-list li{
+  margin-bottom: 10px;
+}
+
+.theses-list li:last-child{
+  margin-bottom: 0;
+}
+
+.theses-list a{
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.thesis-meta{
+  font-style: italic;
+  color: var(--muted);
+  font-size: .84rem;
+  margin-top: 2px;
+}
+
+/* Wide viewports: float to the left of the centered papers list */
+@media (min-width: 1500px){
+  .theses-side{
+    position: absolute;
+    top: 0;
+    right: calc(100% + 16px);
+    width: 200px;
+  }
+}
+
+/* Narrow viewports: small left-aligned card above the papers list */
+@media (max-width: 1499px){
+  .theses-side{
+    width: min(320px, 100%);
+    margin: 0 0 24px;
+  }
+}
+
+/* === Paper list === */
 ol.papers{
   list-style: none;
   padding-left: 0;
-  margin: 16px 0 0;
+  margin: 0;
   display: grid;
   gap: 28px;
   justify-items: center;
