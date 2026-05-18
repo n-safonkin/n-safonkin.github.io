@@ -67,25 +67,43 @@
   }
 }
 
-/* === Paper list — plain block layout so toggling an abstract NEVER
-       reflows or resizes the list horizontally === */
+/* === Paper list — locked to a hard pixel max with overflow guards
+       so toggling an abstract CANNOT widen or reflow the list === */
 ol.papers{
   list-style: none;
   padding-left: 0;
   margin: 0;
+  max-width: 100%;
+  min-width: 0;
 }
 
 li.paperitem{
-  width: min(1089px, 100%);
+  display: block;
+  max-width: 1089px;
+  width: 100%;
+  min-width: 0;
   margin: 0 auto 28px;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 10px 16px;
+  box-sizing: border-box;
+  /* Long unbreakable tokens (URLs, MathJax content) must wrap, never push the card wider. */
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 li.paperitem:last-child{
   margin-bottom: 0;
+}
+
+.abstract{
+  margin-top: 7px;
+  border-left: 3px solid var(--accent);
+  padding-left: 12px;
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .paper-title{ font-weight: 750; }
@@ -122,9 +140,4 @@ li.paperitem:last-child{
   pointer-events: none;
 }
 
-.abstract{
-  margin-top: 7px;
-  border-left: 3px solid var(--accent);
-  padding-left: 12px;
-}
 .is-hidden{ display: none; }
