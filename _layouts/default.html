@@ -3,7 +3,24 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>{{ page.title }}</title>
+  <title>{{ page.title | default: site.title }}</title>
+
+  {% assign description = page.description | default: site.description %}
+  <meta name="description" content="{{ description | strip_newlines }}">
+  <meta name="author" content="{{ site.author.name }}">
+
+  {% assign canonical = page.url | replace:'index.html','' | absolute_url %}
+  <link rel="canonical" href="{{ canonical }}">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ page.title | default: site.title }}">
+  <meta property="og:description" content="{{ description | strip_newlines }}">
+  <meta property="og:url" content="{{ canonical }}">
+  <meta property="og:site_name" content="{{ site.title }}">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ page.title | default: site.title }}">
+  <meta name="twitter:description" content="{{ description | strip_newlines }}">
 
   <!-- Base site styles (DO NOT REMOVE) -->
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
@@ -35,9 +52,6 @@
 
       <a class="{% if page.url == '/papers.html' %}active{% endif %}"
          href="{{ '/papers.html' | relative_url }}">Papers</a>
-
-      <a class="{% if page.url == '/other.html' %}active{% endif %}"
-         href="{{ '/other.html' | relative_url }}">Other</a>
     </nav>
   </header>
 

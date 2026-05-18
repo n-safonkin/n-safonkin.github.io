@@ -1,4 +1,13 @@
 title: Nikita Safonkin
+description: >-
+  Postdoctoral researcher in mathematics at Leipzig University, working on
+  noncommutative algebra, representation theory, and algebraic combinatorics.
+url: https://nikita-safonkin.com
+
+author:
+  name: Nikita Safonkin
+  email: safonkin.nik@gmail.com
+
 markdown: kramdown
 kramdown:
   input: GFM

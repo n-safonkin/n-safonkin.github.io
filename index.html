@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Nikita Safonkin
+description: Postdoctoral researcher in mathematics at Leipzig University, working on noncommutative algebra, representation theory, and algebraic combinatorics.
 show_footer: true
 extra_css:
   - /assets/index.css
@@ -39,6 +40,13 @@ extra_css:
         <div class="label">Office</div>
         <div class="value">A409 (Neues Augusteum)</div>
       </div>
+
+      <div class="row">
+        <div class="label">arXiv</div>
+        <div class="value">
+          <a href="https://arxiv.org/a/safonkin_n_1" target="_blank" rel="noopener">Author page</a>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -65,43 +73,33 @@ extra_css:
 
 </section>
 
-<div class="card" style="margin-top:16px;">
+<div class="card">
   <h2 style="margin:0 0 10px;">Recent Talks</h2>
 
   <ul style="margin:0; padding-left:18px;">
+  {% for talk in site.data.talks %}
     <li style="margin:0 0 10px;">
-      BIMSA Integrable Systems Seminar (December 2, 2025) ·
-      <a href="https://sites.google.com/view/bimsa-iss#h.ekxtfk9gbdy4" target="_blank" rel="noopener">link</a>
+      {{ talk.venue }} ({{ talk.date }}) ·
+      <a href="{{ talk.link }}" target="_blank" rel="noopener">link</a>
     </li>
-
-    <li style="margin:0 0 10px;">
-      Deformation Quantization and Quantum Groups Seminar, Independent University of Moscow (October 1, 2025) ·
-      <a href="https://mccme.ru/ru/nmu/courses-of-nmu/osen-20252026/nmu_autumn2025_deformacionnoe-kvantovanie/" target="_blank" rel="noopener">link</a>
-    </li>
-
-    <li style="margin:0 0 10px;">
-      X International Workshop on Non-Associative Algebras, Dijon (September 22–26, 2025) ·
-      <a href="https://sites.google.com/view/nonassociativedijon2025/home" target="_blank" rel="noopener">link</a>
-    </li>
-
-    <li style="margin:0 0 10px;">
-      Séminaire Physique mathématique ICJ, Institut Camille Jordan, Lyon (June 20, 2025) ·
-      <a href="https://indico.math.cnrs.fr/event/13841/" target="_blank" rel="noopener">link</a>
-    </li>
-
-    <li style="margin:0 0 10px;">
-      European Non-Associative Algebra Seminar (June 9, 2025) ·
-      <a href="https://sites.google.com/view/enaaw/past-talks/2025" target="_blank" rel="noopener">link</a>
-    </li>
-
-    <li style="margin:0 0 10px;">
-      Geometry Seminar, Max Planck Institute for Mathematics in the Sciences, Leipzig (December 3, 2024) ·
-      <a href="https://www.mis.mpg.de/events/event/double-poisson-brackets-and-involutive-representation-spaces" target="_blank" rel="noopener">link</a>
-    </li>
-
-    <li style="margin:0;">
-      VIII International Workshop on Non-Associative Algebras, Linköping (October 21–25, 2024) ·
-      <a href="https://sites.google.com/view/nonassociativelinkoping2024/home" target="_blank" rel="noopener">link</a>
-    </li>
+  {% endfor %}
   </ul>
 </div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Nikita Safonkin",
+  "jobTitle": "Postdoctoral Researcher",
+  "affiliation": {
+    "@type": "Organization",
+    "name": "Leipzig University"
+  },
+  "email": "mailto:safonkin.nik@gmail.com",
+  "url": "https://nikita-safonkin.com",
+  "sameAs": [
+    "https://arxiv.org/a/safonkin_n_1"
+  ]
+}
+</script>

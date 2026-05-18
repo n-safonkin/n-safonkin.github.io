@@ -1,0 +1,73 @@
+# Papers in reverse-chronological order (newest first).
+# Each entry: title, authors, venue, optional pdf / arxiv / journal, abstract (HTML).
+
+- title: "What is a double star-product?"
+  authors: "N. Safonkin"
+  venue: "(2025)"
+  pdf: "https://arxiv.org/pdf/2506.00699.pdf"
+  arxiv: "https://arxiv.org/abs/2506.00699"
+  abstract: |
+    <p>Double Poisson brackets, introduced by M. Van den Bergh in 2004, are noncommutative analogs of the usual Poisson brackets in the sense of the Kontsevich–Rosenberg principle: they induce Poisson structures on the space of \( N \)-dimensional representations \( \mathrm{Rep}_N(A) \) of an associative algebra \( A \) for any \( N \). The problem of deformation quantization of double Poisson brackets was raised by D. Calaque in 2010, and had remained open since then.</p>
+    <p>In this paper, we address this problem by answering the question in the title. We present a structure on \( A \) that induces a star-product under the representation functor and, therefore, according to the Kontsevich–Rosenberg principle, can be viewed as an analog of star-products in noncommutative geometry. We also provide an explicit example for \( A = \Bbbk\langle x_1, \ldots, x_d \rangle \) and prove a double formality theorem in this case. Along the way, we invert the Kontsevich–Rosenberg principle by introducing the notion of a double algebra over an arbitrary operad.</p>
+
+- title: "Double Poisson brackets and involutive representation spaces"
+  authors: "G. Olshanski, N. Safonkin"
+  venue: "Letters in Mathematical Physics 114, 33 (2024)"
+  pdf: "https://arxiv.org/pdf/2310.01086.pdf"
+  arxiv: "https://arxiv.org/abs/2310.01086"
+  journal: "https://link.springer.com/article/10.1007/s11005-024-01782-3"
+  abstract: |
+    <p>Let \( \Bbbk \) be an algebraically closed field of characteristic \( 0 \) and \( A \) be a finitely generated associative \( \Bbbk \)-algebra, in general noncommutative. One assigns to \( A \) a sequence of commutative \( \Bbbk \)-algebras \( \mathcal{O}(A,d) \), \( d = 1, 2, 3, \dots \), where \( \mathcal{O}(A,d) \) is the coordinate ring of the space \( \operatorname{Rep}(A,d) \) of \( d \)-dimensional representations of the algebra \( A \). A <em>double Poisson bracket</em> on \( A \) in the sense of Van den Bergh is a bilinear map \( \{\!\!\{-,-\}\!\!\} \colon A \times A \to A \otimes A \), subject to certain conditions. Van den Bergh showed that any such bracket \( \{\!\!\{-,-\}\!\!\} \) induces Poisson structures on all algebras \( \mathcal{O}(A,d) \).</p>
+    <p>We propose an analog of Van den Bergh's construction, which produces Poisson structures on the coordinate rings of certain subspaces of the representation spaces \( \operatorname{Rep}(A,d) \). We call these subspaces the <em>involutive</em> representation spaces. They arise by imposing an additional symmetry condition on \( \operatorname{Rep}(A,d) \) — just as the classical groups from the series B, C, D are obtained from the general linear groups (series A) as fixed point sets of involutive automorphisms.</p>
+
+- title: "Remarks on Yangian-Type Algebras and Double Poisson Brackets"
+  authors: "G. Olshanski, N. Safonkin"
+  venue: "Functional Analysis and Its Applications 57, 326–336 (2023)"
+  pdf: "https://arxiv.org/pdf/2308.13325.pdf"
+  arxiv: "https://arxiv.org/abs/2308.13325"
+  journal: "https://link.springer.com/article/10.1134/S0016266323040068"
+  abstract: |
+    <p>This short note is an announcement of results. We continue the study of Yangian-type algebras initiated by the first author. These algebras share a number of properties of the Yangians of type A but are more massive. We refine and substantially enlarge the known construction. A direct link with the class of linear double Poisson brackets on the free associative algebras (Pichereau and Van de Weyer, 2008) is also established.</p>
+
+- title: "Semifinite harmonic functions on the direct product of graded graphs"
+  authors: "P. Nikitin, N. Safonkin"
+  venue: "Zapiski Nauchnykh Seminarov POMI 517, 125–150 (2022)"
+  pdf: "https://arxiv.org/pdf/2209.05901.pdf"
+  arxiv: "https://arxiv.org/abs/2209.05901"
+  journal: "https://www.mathnet.ru/php/archive.phtml?wshow=paper&jrnid=znsl&paperid=7284&option_lang=eng"
+  abstract: |
+    <p>Indecomposable semifinite harmonic functions on the direct product of graded graphs are classified. As a particular case, the full list of indecomposable traces for the infinite inverse symmetric semigroup is obtained.</p>
+
+- title: "Semifinite harmonic functions on the zigzag graph"
+  authors: "N. Safonkin"
+  venue: "Functional Analysis and Its Applications 56:3, 52–74 (2022)"
+  pdf: "https://arxiv.org/pdf/2110.01508.pdf"
+  arxiv: "https://arxiv.org/abs/2110.01508"
+  journal: "https://link.springer.com/article/10.1134/S0016266322030042"
+  abstract: |
+    <p>We study semifinite harmonic functions on the zigzag graph, which corresponds to Pieri's rule for the fundamental quasisymmetric functions \( \{F_{\lambda}\} \). The main problem, which we solve here, is to classify the indecomposable semifinite harmonic functions on this graph. We describe the set of classification parameters and an explicit construction that produces a semifinite indecomposable harmonic function out of every point of this set. We also establish a semifinite analog of the Vershik–Kerov ring theorem.</p>
+
+- title: "Semifinite Harmonic Functions on Branching Graphs"
+  authors: "N. Safonkin"
+  venue: "Journal of Mathematical Sciences (New York) 261, 669–686 (2022)"
+  pdf: "https://arxiv.org/pdf/2108.07850.pdf"
+  arxiv: "https://arxiv.org/abs/2108.07850"
+  journal: "https://link.springer.com/article/10.1007/s10958-022-05779-y"
+  abstract: |
+    <p>We study semifinite harmonic functions on arbitrary branching graphs. We give a detailed exposition of an algebraic method which allows one to classify semifinite indecomposable harmonic functions on some multiplicative branching graphs. This method was proposed by A. Wassermann in terms of operator algebras, while we rephrase, clarify, and simplify the main arguments, working only with combinatorial objects. This work was inspired by the theory of traceable factor representations of the infinite symmetric group \( S(\infty) \).</p>
+
+- title: "Semifinite Harmonic Functions on the Gnedin–Kingman Graph"
+  authors: "N. Safonkin"
+  venue: "Journal of Mathematical Sciences (New York) 255, 132–142 (2021)"
+  pdf: "https://arxiv.org/pdf/2103.02257.pdf"
+  arxiv: "https://arxiv.org/abs/2103.02257"
+  journal: "https://link.springer.com/article/10.1007/s10958-021-05356-9"
+  abstract: |
+    <p>We study the Gnedin–Kingman graph, which corresponds to Pieri's rule for the monomial basis \( \{M_{\lambda}\} \) in the algebra \( \mathrm{QSym} \) of quasisymmetric functions. The paper contains a detailed announcement of results concerning the classification of indecomposable semifinite harmonic functions on the Gnedin–Kingman graph. For these functions, we also establish a multiplicativity property, which is an analog of the Vershik–Kerov ring theorem.</p>
+
+- title: "Classification of Certain Class of Ordinary Differential Equations of the First Order"
+  authors: "P. Bibikov, N. Safonkin"
+  venue: "Russian Mathematics 62 (2018)"
+  journal: "https://link.springer.com/article/10.3103/S1066369X18110014"
+  abstract: |
+    <p>We study problem of global classification of ordinary differential equations of the first order with the linear-fractional right-hand side with rational coefficients with respect to a symmetry group. We find the field of differential invariants and obtain the equivalence criterion for two such equations.</p>

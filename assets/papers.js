@@ -6,5 +6,6 @@ document.addEventListener("click", (e) => {
   const box = document.getElementById(id);
   if (!box) return;
 
-  box.classList.toggle("is-hidden");
+  const hidden = box.classList.toggle("is-hidden");
+  btn.setAttribute("aria-expanded", String(!hidden));
 });
