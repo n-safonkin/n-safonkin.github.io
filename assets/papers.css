@@ -1,6 +1,14 @@
 /* Paper list (used on papers.html).
    All global layout/nav/topbar rules live in style.css. */
 
+/* Match the hero width to the narrower (800px) paper-card column.
+   Only applies on the papers page since this CSS file is page-scoped. */
+.hero{
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .papers-area{
   position: relative;
   margin-top: 24px;

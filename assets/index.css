@@ -118,10 +118,6 @@
   margin: 0 0 12px;
 }
 
-.talks-card .talks-list li:last-child{
-  margin-bottom: 0;
-}
-
 /* ====== Mobile ====== */
 @media (max-width: 900px){
   .home-layout{
