@@ -65,10 +65,10 @@ body{
 .brand{
   font-family: var(--font-serif);
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.35rem;
   text-decoration: none;
   color: var(--text);
-  margin-right: 10px;
+  margin-right: 14px;
   letter-spacing: -0.005em;
 }
 
@@ -99,13 +99,15 @@ main.wrap{
 }
 
 /* === Shared blocks === */
+/* Hero gradient — Cream-theme warm version. Periwinkle preset uses the
+   original cool blue-purple gradient (saved in memory). */
 .hero{
   padding: 18px;
   border-radius: 18px;
-  border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+  border: 1px solid rgba(176, 132, 60, 0.22);
   background: linear-gradient(
     135deg,
-    color-mix(in srgb, var(--accent) 12%, white),
+    #f7eddf,
     white
   );
 }

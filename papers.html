@@ -17,17 +17,19 @@ extra_js:
 <div class="papers-area">
 
   <aside class="theses-side">
-    <h3>Theses</h3>
-    <ul class="theses-list">
-      <li>
-        <a href="{{ '/assets/other_writings/phd-thesis.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer">PhD Thesis (2023)</a>
-        <div class="thesis-meta">Harmonic functions on branching graphs</div>
-      </li>
-      <li>
-        <a href="{{ '/assets/other_writings/masters-thesis.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer">Master&rsquo;s Thesis (2019)</a>
-        <div class="thesis-meta">Infinite-dimensional representations of U_q(gl_N)</div>
-      </li>
-    </ul>
+    <button class="theses-toggle" type="button" data-toggle="theses-content" aria-expanded="false" aria-controls="theses-content">Theses</button>
+    <div id="theses-content" class="is-hidden">
+      <ul class="theses-list">
+        <li>
+          <a href="{{ '/assets/other_writings/phd-thesis.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer">PhD Thesis (2023)</a>
+          <div class="thesis-meta">Harmonic functions on branching graphs</div>
+        </li>
+        <li>
+          <a href="{{ '/assets/other_writings/masters-thesis.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer">Master&rsquo;s Thesis (2019)</a>
+          <div class="thesis-meta">Infinite-dimensional representations of U_q(gl_N)</div>
+        </li>
+      </ul>
+    </div>
   </aside>
 
   <ol class="papers" reversed>

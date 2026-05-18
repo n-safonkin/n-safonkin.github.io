@@ -25,11 +25,35 @@
   margin: 0 0 24px;
 }
 
-.theses-side h3{
-  margin: 0 0 8px;
+.theses-toggle{
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
   font-family: var(--font-serif);
   font-size: 1rem;
   font-weight: 650;
+  color: var(--text);
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.theses-toggle::after{
+  content: "›";
+  font-size: 1.15rem;
+  margin-left: auto;
+  transition: transform 0.2s ease;
+}
+
+.theses-toggle[aria-expanded="true"]::after{
+  transform: rotate(90deg);
+}
+
+#theses-content{
+  margin-top: 10px;
 }
 
 .theses-list{
