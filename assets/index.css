@@ -1,6 +1,11 @@
 /* ====== Desktop layout: hero hero photo / contact about photo ====== */
 .home-layout{
   margin-top: 0;
+  /* Scale the whole bio grid to ~90% of the wrap so the photo & cards
+     are visually smaller and the page fits without scrolling. */
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
   display: grid;
   grid-template-columns: 0.62fr 1.55fr 1.25fr;
   grid-template-rows: auto 1fr;
@@ -13,6 +18,9 @@
 
 .home-layout + .card{
   margin-top: 18px;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-home{ grid-area: hero; }
