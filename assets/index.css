@@ -92,9 +92,8 @@
   margin: 0;
 }
 
-.about-research h3{
-  margin: 0 0 6px;
-  font-size: 1.1rem;
+.about-research h2{
+  margin: 0 0 10px;
 }
 
 .about-research p{
@@ -107,7 +106,7 @@
 }
 
 .talks-card h2{
-  margin: 0 0 8px;
+  margin: 0 0 16px;
 }
 
 .talks-card .talks-list{
@@ -116,7 +115,7 @@
 }
 
 .talks-card .talks-list li{
-  margin: 0 0 8px;
+  margin: 0 0 12px;
 }
 
 .talks-card .talks-list li:last-child{
