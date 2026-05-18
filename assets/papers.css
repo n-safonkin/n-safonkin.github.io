@@ -13,6 +13,9 @@
   border-radius: 12px;
   padding: 12px 14px;
   font-size: .92rem;
+  /* default (narrow viewport): inline, left-aligned, up to 400px wide */
+  width: min(400px, 100%);
+  margin: 0 0 24px;
 }
 
 .theses-side h3{
@@ -48,39 +51,37 @@
   margin-top: 2px;
 }
 
-/* Wide viewports: float to the left of the centered papers list */
+/* Wide viewports: float in the centered position of the left empty space.
+   Width scales 200 → 400 as viewport widens 1500 → ~1900 px. */
 @media (min-width: 1500px){
   .theses-side{
     position: absolute;
     top: 0;
-    right: calc(100% + 16px);
-    width: 200px;
+    margin: 0;
+    width: clamp(200px, calc((100vw - 1200px) / 2 + 55.5px), 400px);
+    /* Anchor box center to midpoint between viewport-left and papers-list-left */
+    left: calc(-1 * (100vw - 1200px) / 4 + 9.75px);
+    transform: translateX(-50%);
   }
 }
 
-/* Narrow viewports: small left-aligned card above the papers list */
-@media (max-width: 1499px){
-  .theses-side{
-    width: min(320px, 100%);
-    margin: 0 0 24px;
-  }
-}
-
-/* === Paper list === */
+/* === Paper list ===
+   Explicit grid-template-columns: pins the track to min(1089, 100%) so the
+   list does NOT reflow when an abstract is toggled open. */
 ol.papers{
   list-style: none;
   padding-left: 0;
   margin: 0;
   display: grid;
+  grid-template-columns: min(1089px, 100%);
+  justify-content: center;
   gap: 28px;
-  justify-items: center;
 }
 
 li.paperitem{
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 16px;
-  width: min(1089px, 100%);
   padding: 10px 16px;
 }
 

@@ -60,20 +60,22 @@ extra_css:
       <p>
         My CV is available here:
         <a href="{{ '/assets/CV.pdf' | relative_url }}" target="_blank" rel="noopener">CV</a>.
-        My papers can also be found on my
-        <a href="https://arxiv.org/a/safonkin_n_1" target="_blank" rel="noopener">arXiv author page</a>.
+      </p>
+
+      <p>
+        My papers on <a href="https://arxiv.org/a/safonkin_n_1" target="_blank" rel="noopener">arXiv</a>.
       </p>
     </div>
   </div>
 
 </section>
 
-<div class="card">
-  <h2 style="margin:0 0 10px;">Recent Talks</h2>
+<div class="card talks-card">
+  <h2>Recent Talks</h2>
 
-  <ul style="margin:0; padding-left:18px;">
+  <ul class="talks-list">
   {% for talk in site.data.talks %}
-    <li style="margin:0 0 10px;">
+    <li>
       {{ talk.venue }} ({{ talk.date }}) ·
       <a href="{{ talk.link }}" target="_blank" rel="noopener">link</a>
     </li>

@@ -2,9 +2,9 @@
 .home-layout{
   margin-top: 0;
   display: grid;
-  grid-template-columns: 0.62fr 1.55fr 1.25fr; /* photo column wider */
+  grid-template-columns: 0.62fr 1.55fr 1.25fr;
   grid-template-rows: auto 1fr;
-  gap: 32px;
+  gap: 20px;
   align-items: stretch;
   grid-template-areas:
     "hero   hero   photo"
@@ -12,7 +12,7 @@
 }
 
 .home-layout + .card{
-  margin-top: 32px;
+  margin-top: 18px;
 }
 
 .hero-home{ grid-area: hero; }
@@ -22,12 +22,12 @@
 
 /* Hero tuning */
 .hero-home{
-  padding: 22px 22px;
+  padding: 18px 22px;
 }
 .hero-home h1{
   font-size: 2.25rem;
   line-height: 1.12;
-  margin: 0 0 10px;
+  margin: 0 0 8px;
 }
 .hero-home .sub{
   font-size: 1.08rem;
@@ -51,7 +51,7 @@
   border: none;
 }
 
-/* Contact: spread sections more (Email / Address / Office / arXiv) */
+/* Contact: spread sections evenly */
 .contact-card{
   display: flex;
   flex-direction: column;
@@ -62,7 +62,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 26px;
+  gap: 18px;
 }
 
 .contact-card .row{
@@ -71,10 +71,10 @@
 }
 
 .contact-card .label{
-  margin: 0 0 6px;
+  margin: 0 0 4px;
 }
 
-/* About: stretch spacing between paragraphs more */
+/* About: spread paragraphs evenly */
 .about-card{
   display: flex;
   flex-direction: column;
@@ -85,11 +85,33 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 28px;
+  gap: 18px;
 }
 
 .about-card p{
   margin: 0;
+}
+
+/* Recent Talks card: tighter spacing to keep the page within one viewport */
+.talks-card{
+  padding: 10px 14px;
+}
+
+.talks-card h2{
+  margin: 0 0 6px;
+}
+
+.talks-card .talks-list{
+  margin: 0;
+  padding-left: 18px;
+}
+
+.talks-card .talks-list li{
+  margin: 0 0 4px;
+}
+
+.talks-card .talks-list li:last-child{
+  margin-bottom: 0;
 }
 
 /* ====== Mobile ====== */

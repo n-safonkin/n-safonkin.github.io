@@ -84,7 +84,7 @@ body{
 .wrap{
   max-width: var(--container);
   margin: 0 auto;
-  padding: 26px 18px 28px;
+  padding: 18px 18px 22px;
 }
 
 main.wrap{
