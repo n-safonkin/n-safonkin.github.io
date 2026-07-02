@@ -1,6 +1,14 @@
 # Papers in reverse-chronological order (newest first).
 # Each entry: title, authors, venue, optional pdf / arxiv / journal, abstract (HTML).
 
+- title: "Double Transposed Poisson Algebras"
+  authors: "M. Fairon, N. Safonkin"
+  venue: "(2026)"
+  pdf: "https://arxiv.org/pdf/2607.01066.pdf"
+  arxiv: "https://arxiv.org/abs/2607.01066"
+  abstract: |
+    <p>We introduce double transposed Poisson algebras, a noncommutative analogue of the transposed Poisson algebras of Bai, Bai, Guo and Wu that is compatible with the Kontsevich–Rosenberg principle. We first consider a simplified version which we call id-adapted double transposed Poisson algebras and then explore the general definition. We prove that every such structure on a unital associative algebra \( \mathbb{A} \) is governed by a single derivation \( \mathbb{A} \to \mathbb{A} \otimes \operatorname{S}(\mathbb{A}/[\mathbb{A},\mathbb{A}]) \). Furthermore, this induces a \( \operatorname{GL}_N \)-equivariant transposed Poisson structure on each representation algebra \( \mathbb{A}_N = \Bbbk[\operatorname{Rep}_N(\mathbb{A})] \). We also define \( H_0 \)-transposed Poisson structures, the transposed counterpart of Crawley-Boevey's \( H_0 \)-Poisson structures, and use the trace map to obtain a transposed Poisson structure on the ring of \( \operatorname{GL}_N \)-invariants \( \mathbb{A}_N^{\operatorname{GL}_N} \).</p>
+
 - title: "Coupled double Poisson brackets"
   authors: "N. Safonkin"
   venue: "(2026)"
