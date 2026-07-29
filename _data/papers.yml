@@ -1,6 +1,15 @@
 # Papers in reverse-chronological order (newest first).
 # Each entry: title, authors, venue, optional pdf / arxiv / journal, abstract (HTML).
 
+- title: "Trace radicals and cocenters of free products"
+  authors: "N. Safonkin"
+  venue: "(2026)"
+  pdf: "https://arxiv.org/pdf/2607.24697.pdf"
+  arxiv: "https://arxiv.org/abs/2607.24697"
+  abstract: |
+    <p>We call a unital associative algebra \( A \) trace residually finite-dimensional if its elements are separated by finite-dimensional representations and its cocenter \( A/[A,A] \) is separated by the corresponding trace functionals. For RFD algebras \( A \) and \( B \), we prove that the trace radical of \( A*B \), the common kernel of all finite-dimensional trace functionals, is the direct sum of the trace radicals of \( A \) and \( B \), which implies that \( A*B \) is trace RFD if and only if both \( A \) and \( B \) are trace RFD.</p>
+    <p>The proof combines an explicit cocenter decomposition with a construction of finite-dimensional representations whose traces detect nonzero classes of words of length greater than one.</p>
+
 - title: "Double Transposed Poisson Algebras"
   authors: "M. Fairon, N. Safonkin"
   venue: "(2026)"
