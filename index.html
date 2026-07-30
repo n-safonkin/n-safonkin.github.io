@@ -5,85 +5,91 @@ description: Postdoctoral researcher in mathematics at Leipzig University, worki
 show_footer: true
 extra_css:
   - /assets/index.css
-  - /assets/last-updated-mobile.css
 ---
 
-<section class="home-layout">
-
-  <section class="hero hero-home">
+<section class="home-hero">
+  <div class="hero-copy">
+    <p class="eyebrow">Postdoctoral researcher · Leipzig University</p>
     <h1>Nikita Safonkin</h1>
-    <p class="sub">Postdoctoral researcher at Leipzig University</p>
-  </section>
-
-  <div class="card photo-card">
-    <img src="{{ '/assets/me.jpg' | relative_url }}" alt="Photo of Nikita Safonkin">
-  </div>
-
-  <div class="card contact-card">
-    <h2 style="margin:0 0 10px;">Contact</h2>
-
-    <div class="contact-grid">
-      <div class="row">
-        <div class="label">Email</div>
-        <div class="value">safonkin.nik@gmail.com</div>
-      </div>
-
-      <div class="row">
-        <div class="label">Address</div>
-        <div class="value">
-          Augustusplatz 10<br>
-          04109 Leipzig
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="label">Office</div>
-        <div class="value">A409 (Neues Augusteum)</div>
-      </div>
+    <p class="hero-intro">I work in noncommutative algebra, representation theory, and algebraic combinatorics, with connections to noncommutative Poisson geometry and deformation quantization.</p>
+    <div class="hero-actions">
+      <a class="button button-primary" href="{{ '/papers.html' | relative_url }}">Browse publications</a>
+      <a class="button" href="{{ '/assets/CV.pdf' | relative_url }}?v={{ site.time | date: '%s' }}" target="_blank" rel="noopener">Download CV</a>
+      <a class="button button-ghost" href="https://arxiv.org/a/safonkin_n_1" target="_blank" rel="noopener">arXiv</a>
     </div>
   </div>
 
-  <div class="card about-card">
-    <h2 style="margin:0 0 10px;">About</h2>
-
-    <div class="about-body">
-      <p>
-        I am a postdoctoral researcher in the Department of Mathematics at Leipzig University.
-        I completed my PhD at the University of Reims Champagne-Ardenne in 2023.
-      </p>
-
-      <div class="about-research">
-        <h2>My research</h2>
-        <p>
-          I am interested in noncommutative algebra, representation theory, and algebraic combinatorics,
-          with connections to noncommutative Poisson geometry and deformation quantization.
-        </p>
-      </div>
-
-      <p>
-        My CV is available here:
-        <a href="{{ '/assets/CV.pdf' | relative_url }}?v={{ site.time | date: '%s' }}" target="_blank" rel="noopener">CV</a>.
-      </p>
-
-      <p>
-        My papers on <a href="https://arxiv.org/a/safonkin_n_1" target="_blank" rel="noopener">arXiv</a>.
-      </p>
-    </div>
-  </div>
-
+  <figure class="portrait-frame">
+    <img src="{{ '/assets/me.jpg' | relative_url }}" alt="Portrait of Nikita Safonkin" width="402" height="527">
+  </figure>
 </section>
 
-<div class="card talks-card">
-  <h2>Recent Talks</h2>
+<div class="home-content">
+  <div class="home-primary">
+    <section class="home-section" aria-labelledby="recent-work-heading">
+      <h2 id="recent-work-heading">Recent work</h2>
+      <ol class="work-list">
+      {% for paper in site.data.papers limit:3 %}
+        <li class="work-item">
+          <h3><a href="{{ paper.arxiv }}" target="_blank" rel="noopener">{{ paper.title }}</a></h3>
+          <p class="meta">Preprint, {{ paper.venue | remove: '(' | remove: ')' }} · {{ paper.authors }}</p>
+        </li>
+      {% endfor %}
+      </ol>
+      <a class="section-link" href="{{ '/papers.html' | relative_url }}">All publications</a>
+    </section>
 
-  <ul class="talks-list">
-  {% for talk in site.data.talks %}
-    <li>
-      {{ talk.venue }} ({{ talk.date }}) ·
-      <a href="{{ talk.link }}" target="_blank" rel="noopener">link</a>
-    </li>
-  {% endfor %}
-  </ul>
+    <section class="home-section" aria-labelledby="talks-heading">
+      <h2 id="talks-heading">Selected talks</h2>
+      <ul class="talk-list">
+      {% for talk in site.data.talks limit:3 %}
+        <li class="talk-item">
+          <h3><a href="{{ talk.link }}" target="_blank" rel="noopener">{{ talk.venue }}</a></h3>
+          <p class="meta">{{ talk.date }} · Event page</p>
+        </li>
+      {% endfor %}
+      </ul>
+      {% assign earlier_talk_count = site.data.talks | size | minus: 3 %}
+      {% if earlier_talk_count > 0 %}
+      <details class="earlier-talks">
+        <summary>Earlier talks ({{ earlier_talk_count }})</summary>
+        <ul class="talk-list">
+        {% for talk in site.data.talks offset:3 %}
+          <li class="talk-item">
+            <h3><a href="{{ talk.link }}" target="_blank" rel="noopener">{{ talk.venue }}</a></h3>
+            <p class="meta">{{ talk.date }} · Event page</p>
+          </li>
+        {% endfor %}
+        </ul>
+      </details>
+      {% endif %}
+    </section>
+  </div>
+
+  <aside class="home-sidebar" aria-label="About and contact">
+    <section class="sidebar-section">
+      <h2>About</h2>
+      <p>I am a postdoctoral researcher in the Department of Mathematics at Leipzig University. I completed my PhD at the University of Reims Champagne-Ardenne in 2023.</p>
+    </section>
+
+    <section class="sidebar-section">
+      <h2>Contact</h2>
+      <dl class="contact-list">
+        <div>
+          <dt>Email</dt>
+          <dd><a href="mailto:safonkin.nik@gmail.com">safonkin.nik@gmail.com</a></dd>
+        </div>
+        <div>
+          <dt>Office</dt>
+          <dd>A409 (Neues Augusteum)</dd>
+        </div>
+        <div>
+          <dt>Address</dt>
+          <dd>Augustusplatz 10<br>04109 Leipzig</dd>
+        </div>
+      </dl>
+    </section>
+  </aside>
 </div>
 
 <script type="application/ld+json">

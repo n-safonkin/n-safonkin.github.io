@@ -12,6 +12,10 @@
   {% assign canonical = page.url | replace:'index.html','' | absolute_url %}
   <link rel="canonical" href="{{ canonical }}">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&amp;family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&amp;display=swap" rel="stylesheet">
+
   <meta property="og:type" content="website">
   <meta property="og:title" content="{{ page.title | default: site.title }}">
   <meta property="og:description" content="{{ description | strip_newlines }}">
@@ -43,16 +47,21 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
   <header class="topbar">
     <nav class="nav">
       <a class="brand" href="{{ '/' | relative_url }}">Nikita Safonkin</a>
 
-      <a class="{% if page.url == '/papers.html' %}active{% endif %}"
-         href="{{ '/papers.html' | relative_url }}">Papers</a>
+      <div class="nav-links">
+        <a class="nav-link nav-secondary{% if page.url == '/' or page.url == '/index.html' %} active{% endif %}" href="{{ '/' | relative_url }}"{% if page.url == '/' or page.url == '/index.html' %} aria-current="page"{% endif %}>About</a>
+        <a class="nav-link{% if page.url == '/papers.html' %} active{% endif %}" href="{{ '/papers.html' | relative_url }}"{% if page.url == '/papers.html' %} aria-current="page"{% endif %}>Publications</a>
+        <a class="nav-link nav-secondary" href="{{ '/assets/CV.pdf' | relative_url }}?v={{ site.time | date: '%s' }}" target="_blank" rel="noopener">CV</a>
+      </div>
     </nav>
   </header>
 
-  <main class="wrap">
+  <main id="main-content" class="wrap" tabindex="-1">
     {{ content }}
   </main>
 

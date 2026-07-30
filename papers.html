@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Papers · Nikita Safonkin
+title: Publications · Nikita Safonkin
 description: Theses, publications, and preprints by Nikita Safonkin in noncommutative algebra, representation theory, and algebraic combinatorics.
 show_footer: false
 mathjax: true
@@ -10,47 +10,75 @@ extra_js:
   - /assets/papers.js
 ---
 
-<div class="papers-page">
+<header class="publications-intro">
+  <p class="eyebrow">Research</p>
+  <h1>Publications</h1>
+  <p>Work in noncommutative algebra, representation theory, algebraic combinatorics, and related Poisson geometry.</p>
+</header>
 
-  <aside class="theses-side">
-    <button class="theses-toggle" type="button" data-toggle="theses-content" aria-expanded="false" aria-controls="theses-content">Theses</button>
-    <div id="theses-content" class="is-hidden">
-      <ul class="theses-list">
-        <li>
-          <a href="{{ '/assets/other_writings/phd-thesis.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer">PhD Thesis (2023)</a>
-          <div class="thesis-meta">Harmonic functions on branching graphs</div>
-        </li>
-        <li>
-          <a href="{{ '/assets/other_writings/masters-thesis.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer">Master&rsquo;s Thesis (2019)</a>
-          <div class="thesis-meta">Infinite-dimensional representations of U_q(gl_N)</div>
-        </li>
-      </ul>
-    </div>
-  </aside>
-
-  <div class="papers-area">
-
-  <ol class="papers" reversed>
+<section class="publication-group" aria-labelledby="preprints-heading">
+  <h2 id="preprints-heading">Preprints</h2>
+  <ol class="publication-list">
   {% for paper in site.data.papers %}
-    {% assign abs_id = "abs-" | append: forloop.index %}
-    <li class="paperitem">
-      <div class="paper-title"><i>{{ paper.title }}</i></div>
-      <div class="paper-authors">{{ paper.authors }}</div>
-      <div class="paper-venue">{{ paper.venue }}</div>
-
-      <div class="paper-links">
-        <button class="pill" type="button" data-toggle="{{ abs_id }}" aria-expanded="false" aria-controls="{{ abs_id }}">Abstract</button>
-        {% if paper.pdf %}<a class="pill" href="{{ paper.pdf }}" target="_blank" rel="noopener noreferrer">PDF</a>{% endif %}
-        {% if paper.arxiv %}<a class="pill" href="{{ paper.arxiv }}" target="_blank" rel="noopener noreferrer">arXiv</a>{% endif %}
-        {% if paper.journal %}<a class="pill" href="{{ paper.journal }}" target="_blank" rel="noopener noreferrer">Journal</a>{% endif %}
+    {% unless paper.journal %}
+    {% assign abs_id = "preprint-abstract-" | append: forloop.index %}
+    <li class="publication-item">
+      <div class="publication-copy">
+        <h3 class="paper-title">{{ paper.title }}</h3>
+        <p class="paper-authors">{{ paper.authors }}</p>
+        <p class="paper-venue">Preprint, {{ paper.venue | remove: '(' | remove: ')' }}</p>
       </div>
-
+      <div class="publication-links">
+        <button class="publication-action" type="button" data-toggle="{{ abs_id }}" aria-expanded="false" aria-controls="{{ abs_id }}">Abstract</button>
+        {% if paper.pdf %}<a class="publication-action publication-action-secondary" href="{{ paper.pdf }}" target="_blank" rel="noopener noreferrer">PDF</a>{% endif %}
+        {% if paper.arxiv %}<a class="publication-action publication-action-secondary" href="{{ paper.arxiv }}" target="_blank" rel="noopener noreferrer">arXiv</a>{% endif %}
+      </div>
       <div id="{{ abs_id }}" class="abstract is-hidden">
         {{ paper.abstract }}
       </div>
     </li>
+    {% endunless %}
   {% endfor %}
   </ol>
+</section>
 
-  </div>
-</div>
+<section class="publication-group" aria-labelledby="published-heading">
+  <h2 id="published-heading">Published papers</h2>
+  <ol class="publication-list">
+  {% for paper in site.data.papers %}
+    {% if paper.journal %}
+    {% assign abs_id = "published-abstract-" | append: forloop.index %}
+    <li class="publication-item">
+      <div class="publication-copy">
+        <h3 class="paper-title">{{ paper.title }}</h3>
+        <p class="paper-authors">{{ paper.authors }}</p>
+        <p class="paper-venue">{{ paper.venue }}</p>
+      </div>
+      <div class="publication-links">
+        <button class="publication-action" type="button" data-toggle="{{ abs_id }}" aria-expanded="false" aria-controls="{{ abs_id }}">Abstract</button>
+        {% if paper.pdf %}<a class="publication-action publication-action-secondary" href="{{ paper.pdf }}" target="_blank" rel="noopener noreferrer">PDF</a>{% endif %}
+        {% if paper.arxiv %}<a class="publication-action publication-action-secondary" href="{{ paper.arxiv }}" target="_blank" rel="noopener noreferrer">arXiv</a>{% endif %}
+        <a class="publication-action publication-action-secondary" href="{{ paper.journal }}" target="_blank" rel="noopener noreferrer">Journal</a>
+      </div>
+      <div id="{{ abs_id }}" class="abstract is-hidden">
+        {{ paper.abstract }}
+      </div>
+    </li>
+    {% endif %}
+  {% endfor %}
+  </ol>
+</section>
+
+<section class="publication-group theses-section" aria-labelledby="theses-heading">
+  <h2 id="theses-heading">Theses</h2>
+  <ul class="theses-list">
+    <li>
+      <h3><a href="{{ '/assets/other_writings/phd-thesis.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer">Harmonic functions on branching graphs</a></h3>
+      <p class="meta">PhD thesis · 2023</p>
+    </li>
+    <li>
+      <h3><a href="{{ '/assets/other_writings/masters-thesis.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer">Infinite-dimensional representations of U_q(gl_N)</a></h3>
+      <p class="meta">Master&rsquo;s thesis · 2019</p>
+    </li>
+  </ul>
+</section>
