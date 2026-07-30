@@ -87,22 +87,6 @@ p{
   margin-bottom: 1rem;
 }
 
-.skip-link{
-  position: fixed;
-  top: .75rem;
-  left: .75rem;
-  z-index: 2000;
-  padding: .55rem .8rem;
-  color: var(--surface);
-  background: var(--accent-strong);
-  border-radius: .55rem;
-  transform: translateY(-180%);
-}
-
-.skip-link:focus{
-  transform: translateY(0);
-}
-
 .topbar{
   position: sticky;
   top: 0;
