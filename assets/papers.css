@@ -1,6 +1,6 @@
 .publications-intro{
   max-width: 720px;
-  padding: 1.4rem 0 2.6rem;
+  padding: 0 0 2.6rem;
   border-bottom: 1px solid var(--border);
 }
 
@@ -148,10 +148,6 @@
 }
 
 @media (max-width: 720px){
-  .publications-intro{
-    padding-top: .65rem;
-  }
-
   .publication-item{
     grid-template-columns: 1fr;
     gap: .75rem;

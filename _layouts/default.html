@@ -27,12 +27,12 @@
   <meta name="twitter:description" content="{{ description | strip_newlines }}">
 
   <!-- Base site styles (DO NOT REMOVE) -->
-  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 
   <!-- Page-specific extra CSS -->
   {% if page.extra_css %}
     {% for css in page.extra_css %}
-      <link rel="stylesheet" href="{{ css | relative_url }}">
+      <link rel="stylesheet" href="{{ css | relative_url }}?v={{ site.time | date: '%s' }}">
     {% endfor %}
   {% endif %}
 
