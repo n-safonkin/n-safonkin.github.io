@@ -44,8 +44,8 @@ extra_css:
       <ul class="talk-list">
       {% for talk in site.data.talks limit:3 %}
         <li class="talk-item">
-          <h3><a href="{{ talk.link }}" target="_blank" rel="noopener">{{ talk.venue }}</a></h3>
-          <p class="meta">{{ talk.date }} · Event page</p>
+          <h3>{{ talk.venue }}</h3>
+          <p class="meta">{{ talk.date }} · <a href="{{ talk.link }}" target="_blank" rel="noopener">Event page</a></p>
         </li>
       {% endfor %}
       </ul>
@@ -56,8 +56,8 @@ extra_css:
         <ul class="talk-list">
         {% for talk in site.data.talks offset:3 %}
           <li class="talk-item">
-            <h3><a href="{{ talk.link }}" target="_blank" rel="noopener">{{ talk.venue }}</a></h3>
-            <p class="meta">{{ talk.date }} · Event page</p>
+            <h3>{{ talk.venue }}</h3>
+            <p class="meta">{{ talk.date }} · <a href="{{ talk.link }}" target="_blank" rel="noopener">Event page</a></p>
           </li>
         {% endfor %}
         </ul>
