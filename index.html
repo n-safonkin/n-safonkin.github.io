@@ -32,7 +32,7 @@ extra_css:
       {% for paper in site.data.papers limit:3 %}
         <li class="work-item">
           <h3><a href="{{ paper.arxiv }}" target="_blank" rel="noopener">{{ paper.title }}</a></h3>
-          <p class="meta">Preprint, {{ paper.venue | remove: '(' | remove: ')' }} · {{ paper.authors }}</p>
+          <p class="meta">{% if paper.journal %}{{ paper.venue }}{% else %}Preprint, {{ paper.venue | remove: '(' | remove: ')' }}{% endif %} · {{ paper.authors }}</p>
         </li>
       {% endfor %}
       </ol>
